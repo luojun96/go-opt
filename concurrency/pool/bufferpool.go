@@ -1,0 +1,25 @@
+// Package bufferpool provides a pool of bytes buffers.
+package bufferpool
+
+import (
+	"sync"
+	"bytes"
+)
+
+var bufferPool = &sync.Pool{
+	New: func() any {
+		return &bytes.Buffer{}
+	}
+}
+
+// GetBuffer returns a buffer from the pool.
+func GetBuffer() (buf *bytes.Buffer) {
+	return bufferPool.Get().(*bytes.Buffer)
+}
+
+// PutBuffer returns a buffer to the pool
+// The buffer is reset before it is put back into circulation.
+func PufBuffer(buf *bytes.Buffer) {
+	buf.Reset()
+	bufferPool.Put(buf)
+}
