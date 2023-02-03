@@ -3,7 +3,7 @@ package main
 // https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/
 type MinStack struct {
 	Elements []int
-	MinS []int
+	MinS     []int
 }
 
 func Constructor() MinStack {

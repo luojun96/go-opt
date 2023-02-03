@@ -5,7 +5,7 @@ package main
 // output: true
 func isValid(s string) bool {
 	n := len(s)
-	if n % 2 == 1 {
+	if n%2 == 1 {
 		return false
 	}
 	pairs := map[byte]byte{

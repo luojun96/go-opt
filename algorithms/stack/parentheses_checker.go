@@ -3,7 +3,9 @@ package main
 // https://leetcode.cn/problems/valid-parentheses/
 // string s only contains '('，')'，'{'，'}'，'['，']'
 // exp: s = {[]}, output: true
-// 		s = (], output: false
+//
+//	s = (], output: false
+//
 // use a hash map to store these three parentheses
 // loop the string, store the char into a stack, and pop out the char if the char is right one. After loop the string, the length of stack should be zero
 func isValid(s string) bool {
