@@ -5,13 +5,13 @@ package main
 // output: "We%20are%20happy."
 func replaceSpace(s string) string {
 	b := []byte(s)
-	result := make([]byte, 0)
+	res := make([]byte, 0)
 	for i := 0; i < len(b); i++ {
 		if b[i] == ' ' {
-			result = append(result, []byte("%20")...)
+			res = append(res, []byte("%20")...)
 		} else {
-			result = append(result, b[i])
+			res = append(res, b[i])
 		}
 	}
-	return string(result)
+	return string(res)
 }

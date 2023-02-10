@@ -1,35 +1,44 @@
 package main
 
 // https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/
-
 type CQueue struct {
-	instack, outstack []int
+	instack  []int
+	outstack []int
 }
 
 func Constructor() CQueue {
-	return CQueue{}
-}
-
-func (c *CQueue) AppendTail(value int) {
-	c.instack = append(c.instack, value)
-}
-
-func (c *CQueue) DeleteHead() int {
-	if len(c.outstack) == 0 {
-		if len(c.instack) == 0{
-			return -1
-		}
-		c.in2out()
-	}	
-
-	value := c.outstack[len(c.outstack)-1]
-	c.outstack = c.outstack[:len(c.outstack)-1]
-	return value
-}
-
-func (c *CQueue) in2out() {
-	for len(c.inStack) > 0 {
-		c.outstack = append(c.outstack, c.instack[len(c.instack)-1])
-		c.instack = c.instack[:len(c.instack)-1]
+	return CQueue{
+		instack:  []int{},
+		outstack: []int{},
 	}
+}
+
+func (cq *CQueue) AppendTail(value int) {
+	cq.instack = append(cq.instack, value)
+}
+
+func (cq *CQueue) DeleteHead() int {
+	if len(cq.outstack) == 0 && len(cq.instack) == 0 {
+		return -1
+	}
+
+	var res int
+	if len(cq.outstack) > 0 {
+		res = cq.outstack[len(cq.outstack)-1]
+		cq.outstack = cq.outstack[:len(cq.outstack)-1]
+	} else if len(cq.outstack) == 0 && len(cq.instack) > 0 {
+		for len(cq.instack) > 0 {
+			if len(cq.instack) == 1 {
+				res = cq.instack[0]
+				cq.instack = []int{}
+				break
+			}
+
+			v := cq.instack[len(cq.instack)-1]
+			cq.instack = cq.instack[:len(cq.instack)-1]
+			cq.outstack = append(cq.outstack, v)
+		}
+	}
+
+	return res
 }
