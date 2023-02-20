@@ -7,16 +7,19 @@ import "sort"
 // output: ["abc","acb","bac","bca","cab","cba"]
 func permutation(s string) []string {
 	t := []byte(s)
-	sort.Slice(t, func(i, j int) bool { return t[i] < t[j] })
+	sort.Slice(t, func(i, j int) bool {
+		return t[i] < t[j]
+	})
+
+	var ans []string
 	n := len(t)
 	perm := make([]byte, 0, n)
 	vis := make([]bool, n)
-	var res []string
-	var backtrack func(int)
+
+	var backtrack func(i int)
 	backtrack = func(i int) {
 		if i == n {
-			res = append(res, string(perm))
-			return
+			ans = append(ans, string(perm))
 		}
 		for j, b := range vis {
 			if b || j > 0 && !vis[j-1] && t[j-1] == t[j] {
@@ -30,5 +33,5 @@ func permutation(s string) []string {
 		}
 	}
 	backtrack(0)
-	return res
+	return
 }

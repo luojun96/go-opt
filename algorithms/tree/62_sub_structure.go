@@ -3,10 +3,8 @@ package main
 // https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/
 // input: A = [1,2,3], B = [3,1]
 // output: false
-
 func isSubStructure(a *TreeNode, b *TreeNode) bool {
 	res := false
-
 	if a != nil && b != nil {
 		if a.Val == b.Val {
 			res = isSubTree(a, b)
@@ -20,8 +18,8 @@ func isSubStructure(a *TreeNode, b *TreeNode) bool {
 			res = isSubStructure(a.Right, b)
 		}
 	}
-
 	return res
+
 }
 
 func isSubTree(a *TreeNode, b *TreeNode) bool {

@@ -40,7 +40,7 @@ func (m *MinStack) Top() int {
 	return m.Elements[n-1]
 }
 
-func (m *MinStack) Min() {
+func (m *MinStack) Min() int {
 	n := len(m.MinS)
 	return m.MinS[n-1]
 }

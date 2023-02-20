@@ -37,6 +37,7 @@ func exist(board [][]byte, word string) bool {
 		}
 		return false
 	}
+
 	for i, row := range board {
 		for j := range row {
 			if check(i, j, 0) {

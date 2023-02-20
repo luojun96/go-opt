@@ -18,3 +18,27 @@ func majorityElement(nums []int) int {
 	}
 	return num
 }
+
+func majorityElementByHash(nums []int) int {
+	m := make(map[int]int)
+	var countNums func()
+	countNums = func() {
+		for _, num := range nums {
+			if count, ok := m[num]; !ok {
+				m[num] = 1
+			} else {
+				count++
+				m[num] = count
+			}
+		}
+	}
+	countNums()
+	res, count := nums[0], 1
+	for n, c := range m {
+		if c > count {
+			res = n
+			count = c
+		}
+	}
+	return res
+}
