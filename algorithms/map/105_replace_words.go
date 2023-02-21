@@ -28,7 +28,7 @@ func replaceWordsByTireTree(dictionary []string, sentence string) string {
 			if cur[c] == nil {
 				cur[c] = trie{}
 			}
-			cur = cur[c]	
+			cur = cur[c]
 		}
 		cur['#'] = trie{}
 	}
@@ -42,7 +42,7 @@ func replaceWordsByTireTree(dictionary []string, sentence string) string {
 				break
 			}
 			if cur[c] == nil {
-				break	
+				break
 			}
 			cur = cur[c]
 		}

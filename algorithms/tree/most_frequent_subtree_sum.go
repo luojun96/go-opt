@@ -17,18 +17,18 @@ func findFrequentTreeSum(root *TreeNode) []int {
 
 		var left, right int
 		if node.Left != nil {
-			left = dfs(node.Left)	
+			left = dfs(node.Left)
 		}
 		if node.Right != nil {
 			right = dfs(node.Right)
 		}
 
 		value := node.Val + left + right
-		m[node] = value	
+		m[node] = value
 		return value
 	}
 	dfs(root)
-	
+
 	maxCount := 0
 	res := []int{}
 	cache := map[int]int{}
@@ -46,7 +46,7 @@ func findFrequentTreeSum(root *TreeNode) []int {
 	return res
 }
 
-func findFrequentTreeSumByDFS(root *TreeNode) {
+func findFrequentTreeSumByDFS(root *TreeNode) []int {
 	cnt := map[int]int{}
 	maxCnt := 0
 	var dfs func(*TreeNode) int

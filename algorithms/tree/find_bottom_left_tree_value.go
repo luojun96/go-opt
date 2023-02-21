@@ -17,7 +17,7 @@ func findBottomLeftValue(root *TreeNode) int {
 			}
 			if node.Left != nil {
 				q = append(q, node.Left)
-			}	
+			}
 			if node.Right != nil {
 				q = append(q, node.Right)
 			}
@@ -42,12 +42,12 @@ func findBottomLeftValueByDFS(root *TreeNode) int {
 		}
 	}
 	dfs(root, 0)
-	return
+	return res
 }
 
 func findBottomLeftValueByBFS(root *TreeNode) int {
-	res := node.Val
-	q := []*TreeNode
+	res := root.Val
+	q := []*TreeNode{root}
 	for len(q) > 0 {
 		node := q[0]
 		q = q[1:]

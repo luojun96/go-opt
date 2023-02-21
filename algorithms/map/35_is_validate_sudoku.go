@@ -21,3 +21,7 @@ func isValidSudoku(board [][]byte) bool {
 	}
 	return true
 }
+
+func isValidSudoku(s string) bool {
+
+}

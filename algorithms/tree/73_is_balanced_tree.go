@@ -8,7 +8,7 @@ func isBalanced(root *TreeNode) bool {
 	return balance(root, &depth)
 }
 
-func balance(root *TreeNod, depth *int) bool {
+func balance(root *TreeNode, depth *int) bool {
 	if root == nil {
 		*depth = 0
 		return true
@@ -19,7 +19,7 @@ func balance(root *TreeNod, depth *int) bool {
 		diff := left - right
 		if diff <= 1 && diff >= -1 {
 			if left > right {
-				*depth = 1 + left	
+				*depth = 1 + left
 			} else {
 				*depth = 1 + right
 			}
@@ -28,4 +28,3 @@ func balance(root *TreeNod, depth *int) bool {
 	}
 	return false
 }
-

@@ -38,7 +38,7 @@ func pathSum(root *TreeNode, target int) [][]int {
 	return res
 }
 
-func pathSumOfficial(root *TreeNode, target int) (ans []int) {
+func pathSumOfficial(root *TreeNode, target int) (ans [][]int) {
 	path := []int{}
 	var dfs func(node *TreeNode, left int)
 	dfs = func(node *TreeNode, left int) {
@@ -50,7 +50,7 @@ func pathSumOfficial(root *TreeNode, target int) (ans []int) {
 		defer func() {
 			path = path[:len(path)-1]
 		}()
-		if node.Left == nil && node.Right && left == 0 {
+		if node.Left == nil && node.Right == nil && left == 0 {
 			ans = append(ans, append([]int{}, path...))
 			return
 		}

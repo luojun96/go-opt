@@ -2,7 +2,7 @@ package main
 
 // https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/
 // input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
-func buildTree(preorder []int, inorder []int) *TreeNode {
+func buildTreeByPreOrderAndInorder(preorder []int, inorder []int) *TreeNode {
 	if len(preorder) == 0 {
 		return nil
 	}
@@ -15,13 +15,13 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 		}
 	}
 
-	root.Left = buildTree(preorder[1:len(inorder[:i])+1], inorder[:i])
-	root.Right = buildTree(preorder[len(inorder[:i])+1:], inorder[i+1:])
+	root.Left = buildTreeByPreOrderAndInorder(preorder[1:len(inorder[:i])+1], inorder[:i])
+	root.Right = buildTreeByPreOrderAndInorder(preorder[len(inorder[:i])+1:], inorder[i+1:])
 
 	return root
 }
 
-func buildTreeByIteration(preorder []int, inorder []int) *TreeNode {
+func buildTreeByIte(preorder []int, inorder []int) *TreeNode {
 	if len(preorder) == 0 {
 		return nil
 	}
