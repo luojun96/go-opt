@@ -2,6 +2,13 @@ package main
 
 // https://leetcode.cn/problems/ping-heng-er-cha-shu-lcof/
 // input: [3,9,20,null,null,15,7]
+//
+//	  3
+//	 / \
+//	9  20
+//	  /  \
+//	 15   7
+//
 // output: true
 func isBalanced(root *TreeNode) bool {
 	depth := 0
@@ -26,5 +33,6 @@ func balance(root *TreeNode, depth *int) bool {
 			return true
 		}
 	}
+
 	return false
 }
