@@ -1,7 +1,7 @@
 package main
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -19,7 +19,3 @@ func reversePrint(head *ListNode) []int {
 	}
 	return res
 }
-
-// func main() {
-// 
-// }
