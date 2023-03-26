@@ -7,12 +7,13 @@ import (
 
 	"github.com/go-redis/redis/v9"
 )
+
 func main() {
 	ctx := context.Background()
 	rdb := redis.NewClient(&redis.Options{
-		Addr: "207.148.113.13:6379",
+		Addr:     "207.148.113.13:6379",
 		Password: "Iniital0!",
-		DB: 0,
+		DB:       0,
 	})
 	err := rdb.Set(ctx, "key", "value", 0).Err()
 	if err != nil {
@@ -23,18 +24,18 @@ func main() {
 func DelKeysWithoutTTL() {
 	ctx := context.Background()
 	rdb := redis.NewClient(&redis.Options{
-		Addr:  "207.148.113.13:6379",
+		Addr:     "207.148.113.13:6379",
 		Password: "Iniital0!",
-		DB: 0,
+		DB:       0,
 	})
-	
+
 	ch := make(chan string, 100)
 	var wg sync.WaitGroup
 
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
-		deleted, err := process(ctx, rdb, ch)
+		_, err := process(ctx, rdb, ch)
 		if err != nil {
 			panic(err)
 		}
@@ -46,7 +47,7 @@ func DelKeysWithoutTTL() {
 		ch <- iter.Val()
 	}
 	if err := iter.Err(); err != nil {
-		painc(err)
+		panic(err)
 	}
 
 	close(ch)
@@ -59,7 +60,7 @@ func process(ctx context.Context, rdb *redis.Client, in <-chan string) (int, err
 
 	out := make(chan string, 100)
 	defer func() {
-		close(out)	
+		close(out)
 		wg.Wait()
 	}()
 
@@ -71,6 +72,7 @@ func process(ctx context.Context, rdb *redis.Client, in <-chan string) (int, err
 		}
 	}()
 
+	var deleted int
 	keys := make([]string, 0, 100)
 	for key := range in {
 		keys = append(keys, key)
@@ -78,7 +80,6 @@ func process(ctx context.Context, rdb *redis.Client, in <-chan string) (int, err
 			continue
 		}
 
-		var err error
 		// check TTL
 
 		for _, key := range keys {
@@ -119,19 +120,19 @@ func checkTTL(ctx context.Context, rdb *redis.Client, keys []string) ([]string, 
 			return nil, err
 		}
 		if d != -1 {
-			keys = append(keys[:i], keys[i+1]...)
+			keys = append(keys[:i], keys[:i+1]...)
 		}
 	}
 
 	return keys, nil
 }
 
-func del(ctx content.Context, rdb *redis.Client, in <-chan string) error {
+func del(ctx context.Context, rdb *redis.Client, in <-chan string) error {
 	pipe := rdb.Pipeline()
-	
+
 	for key := range in {
 		pipe.Del(ctx, key)
-		
+
 		if pipe.Len() < 100 {
 			continue
 		}
@@ -146,4 +147,4 @@ func del(ctx content.Context, rdb *redis.Client, in <-chan string) error {
 	}
 
 	return nil
-} 
+}
