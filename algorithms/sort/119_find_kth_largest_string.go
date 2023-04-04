@@ -8,28 +8,28 @@ import (
 // https://leetcode.cn/problems/find-the-kth-largest-integer-in-the-array/description/?languageTags=golang
 // input: nums = ["3","6","7","10"], k = 4
 // output: "3"
-func kthLargestNumber(nums []string, k int) string {
+func findkthLargestNumber(nums []string, k int) string {
 	rand.Seed(time.Now().UnixNano())
-	return quickSelect(nums, 0, len(nums)-1, len(nums)-k)
+	return doQuickSelect(nums, 0, len(nums)-1, len(nums)-k)
 }
 
-func quickSelect(a []string, l, r, index int) string {
-	q := randomPartition(a, l, r)
+func doQuickSelect(a []string, l, r, index int) string {
+	q := DoRandomPartition(a, l, r)
 	if q == index {
 		return a[q]
 	} else if q < index {
-		return quickSelect(a, q+1, r, index)
+		return doQuickSelect(a, q+1, r, index)
 	}
-	return quickSelect(a, l, q-1, index)
+	return doQuickSelect(a, l, q-1, index)
 }
 
-func randomPartition(a []string, l, r int) int {
+func DoRandomPartition(a []string, l, r int) int {
 	i := rand.Int()%(r-l+1) + l
 	a[i], a[r] = a[r], a[i]
-	return partition(a, l, r)
+	return DoPartition(a, l, r)
 }
 
-func partition(a []string, l, r int) int {
+func DoPartition(a []string, l, r int) int {
 	x := a[r]
 	i := l - 1
 	for j := l; j < r; j++ {
