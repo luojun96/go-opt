@@ -4,5 +4,5 @@ package main
 // input: [0,0,1,2,5]
 // output: True
 func isStraight(nums []int) bool {
-
+	return false
 }

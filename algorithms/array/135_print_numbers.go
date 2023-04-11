@@ -30,7 +30,7 @@ func printNumbers(n int) []int {
 		num := make([]byte, i)
 		for j := '1'; j <= '9'; j++ {
 			num[0] = byte(j)
-			dfs(1, num, i)
+			dfs(num, 1, i)
 		}
 	}
 	return res
