@@ -2,18 +2,18 @@ package main
 
 // https://leetcode.cn/problems/spiral-matrix/
 
-func spiralOrder(matrix [][]int) []int {
+func printBySpiralOrder(matrix [][]int) []int {
 	if matrix == nil || len(matrix) == 0 || len(matrix[0]) == 0 {
 		return nil
 	}
 
 	rows := len(matrix)
 	columns := len(matrix[0])
-	res := make([]int, 0, rows * columns)
+	res := make([]int, 0, rows*columns)
 
 	start := 0
 
-	for columns > start * 2 && rows > start * 2 {
+	for columns > start*2 && rows > start*2 {
 		endCol := columns - 1 - start
 		endRow := rows - 1 - start
 
@@ -37,8 +37,8 @@ func spiralOrder(matrix [][]int) []int {
 		}
 
 		// from down to up
-		if start < endCol && start < endRow - 1 {
-			for i := endRow - 1; i >= start + 1; i-- {
+		if start < endCol && start < endRow-1 {
+			for i := endRow - 1; i >= start+1; i-- {
 				res = append(res, matrix[i][start])
 			}
 		}

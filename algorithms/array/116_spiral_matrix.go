@@ -3,11 +3,6 @@ package main
 // https://leetcode.cn/problems/spiral-matrix-ii/
 // input: n = 3
 // output: [[1,2,3],[8,9,4],[7,6,5]]
-type pair struct {
-	x int
-	y int
-}
-
 var dirs = []pair{
 	{0, 1},
 	{1, 0},

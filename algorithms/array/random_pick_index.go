@@ -11,7 +11,7 @@ type Solution struct {
 	cache map[int][]int
 }
 
-func Constructor(nums []int) Solution {
+func NewSolution(nums []int) Solution {
 	m := make(map[int][]int, len(nums))
 	for i := 0; i < len(nums); i++ {
 		v := nums[i]
