@@ -15,7 +15,7 @@ func customSortString(order string, s string) string {
 		val[byte(c)] = i + 1
 	}
 
-	t := []byte[s]
+	t := []byte(s)
 	sort.Slice(t, func(i, j int) bool { return val[t[i]] < val[t[j]] })
 	return string(t)
 }

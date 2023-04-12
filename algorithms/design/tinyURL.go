@@ -14,7 +14,7 @@ type Codec struct {
 	urlToKey map[string]int
 }
 
-func Constructor01() Codec {
+func NewCodec() Codec {
 	return Codec{map[int]string{}, map[string]int{}}
 }
 

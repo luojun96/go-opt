@@ -7,6 +7,7 @@ func ambiguousCoordinates(s string) []string {
 	n := len(s) - 2
 	s = s[1 : len(s)-1]
 
+	var res []string
 	for l := 1; l < n; l++ {
 		lt := getPos(s[:l])
 		if len(lt) == 0 {

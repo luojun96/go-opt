@@ -11,7 +11,7 @@ func countConsistentStrings(allowed string, words []string) int {
 
 	for _, word := range words {
 		mask1 := 0
-		for _, c = range word {
+		for _, c := range word {
 			mask1 |= 1 << (c - 'a')
 		}
 		if mask1|mask == mask {

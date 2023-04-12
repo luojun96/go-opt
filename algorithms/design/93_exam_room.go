@@ -2,18 +2,17 @@ package main
 
 import (
 	"container/list"
-	"fmt"
 )
 
 type ExamRoom struct {
 	seat *list.List
-	n int,
+	n    int
 }
 
-func Constructor(N int) ExamRoom {
+func NewExamRoom(N int) ExamRoom {
 	return ExamRoom{
 		seat: list.New(),
-		n: N - 1
+		n:    N - 1,
 	}
 }
 
@@ -40,7 +39,7 @@ func (e *ExamRoom) Seat() int {
 	}
 	distant := e.n - prev
 	if distant > max {
-		e.seat.PushBack(e.n)	
+		e.seat.PushBack(e.n)
 		return e.n
 	}
 	e.seat.InsertBefore(addVal, addFront)
@@ -50,7 +49,7 @@ func (e *ExamRoom) Seat() int {
 func (e *ExamRoom) Leave(p int) {
 	for element := e.seat.Front(); element != nil; element = element.Next() {
 		if element.Value.(int) == p {
-			e.seat.Remove(element)	
+			e.seat.Remove(element)
 			return
 		}
 	}
