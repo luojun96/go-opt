@@ -7,15 +7,15 @@ import "math/rand"
 // 扩展：给你一个未知长度的序列，如何在其中随机地选择k个元素？
 // 算法：水塘抽样算法
 // 实现：先解决只抽取一个元素的问题，当遇到第i个元素时，应该有1/i的概率选择该元素，1 - i/i 的概率保持原有的选择
-type Solution struct {
+type RandomNode struct {
 	head *ListNode
 }
 
-func Constructor(head *ListNode) Solution {
-	return Solution{head: head}
+func NewRandomNode(head *ListNode) RandomNode {
+	return RandomNode{head: head}
 }
 
-func (s *Solution) GetRandom() int {
+func (s *RandomNode) GetRandom() int {
 	res := 0
 	i := 0
 	p := s.head

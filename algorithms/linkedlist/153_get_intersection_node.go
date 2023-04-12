@@ -23,7 +23,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	return pa
 }
 
-func getIntersectionNodeByHash(headA, headB, *ListNode) *ListNode {
+func getIntersectionNodeByHash(headA, headB *ListNode) *ListNode {
 	vis := map[*ListNode]bool{}
 	for tmp := headA; tmp != nil; tmp = tmp.Next {
 		vis[tmp] = true

@@ -4,7 +4,7 @@ package main
 // input: head = [1, 2, 3, 4]
 // output: [2, 1, 4, 3]
 // use recursion to solve this problem
-func swapPairs01(head *ListNode) *ListNode {
+func swapPairs1(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}

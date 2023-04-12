@@ -6,7 +6,7 @@ type CQueue struct {
 	outstack []int
 }
 
-func Constructor() CQueue {
+func NewCQueue() CQueue {
 	return CQueue{
 		instack:  []int{},
 		outstack: []int{},

@@ -3,7 +3,7 @@ package main
 // https://leetcode.cn/problems/add-two-numbers-ii/
 // input: l1 = [7,2,4,3], l2 = [5,6,4]
 // output: [7,8,0,7]
-func addTwoNumbers(l1, l2 *ListNode) *ListNode {
+func addTwoNumbers2(l1, l2 *ListNode) *ListNode {
 	stack1 := make([]int, 0)
 	stack2 := make([]int, 0)
 
@@ -30,7 +30,7 @@ func addTwoNumbers(l1, l2 *ListNode) *ListNode {
 			b = stack2[len(stack2)-1]
 			stack2 = stack2[:len(stack2)-1]
 		}
-	
+
 		cur := a + b + carry
 		carry = cur / 10
 		cur %= 10
