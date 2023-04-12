@@ -1,4 +1,4 @@
-package main
+package design
 
 // https://leetcode.cn/problems/count-the-number-of-consistent-strings/solutions/
 

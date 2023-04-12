@@ -1,4 +1,4 @@
-package main
+package design
 
 // https://leetcode.cn/problems/ambiguous-coordinates/description/
 // input: "(123)"

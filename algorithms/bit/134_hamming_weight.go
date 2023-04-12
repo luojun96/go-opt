@@ -1,4 +1,4 @@
-package main
+package bit
 
 // https://leetcode.cn/problems/er-jin-zhi-zhong-1de-ge-shu-lcof
 // input: 11
