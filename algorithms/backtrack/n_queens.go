@@ -24,9 +24,6 @@ func calNQueens(row int, res []int) {
 
 func isOk(row, column int, res []int) bool {
 	leftup, rightup := column-1, column+1
-	// if row == 5 {
-	// 	// fmt.Println(res)
-	// }
 	for i := row - 1; i >= 0; i-- {
 		if res[i] == column {
 			return false
@@ -66,5 +63,4 @@ func algorithms() {
 	for _, v := range res {
 		fmt.Println(v)
 	}
-	// fmt.Println(res)
 }

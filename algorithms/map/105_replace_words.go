@@ -33,7 +33,7 @@ func replaceWordsByTireTree(dictionary []string, sentence string) string {
 		cur['#'] = trie{}
 	}
 
-	words := string.Split(sentence, " ")
+	words := strings.Split(sentence, " ")
 	for i, word := range words {
 		cur := root
 		for j, c := range word {

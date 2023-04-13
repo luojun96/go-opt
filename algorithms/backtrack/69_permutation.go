@@ -33,5 +33,5 @@ func permutation(s string) []string {
 		}
 	}
 	backtrack(0)
-	return
+	return ans
 }

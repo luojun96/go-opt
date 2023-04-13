@@ -14,7 +14,6 @@ func canPartitionKSubsets(nums []int, k int) bool {
 
 	used := make([]bool, len(nums))
 	target := sum / k
-	memo := make(map[string]bool, 0)
 
 	var backtrack func(k int, bucket int, nums []int, start int, used []bool, target int) bool
 	backtrack = func(count, bucket int, _ []int, start int, used []bool, target int) bool {

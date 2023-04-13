@@ -1,9 +1,5 @@
 package algorithms
 
-import (
-	"fmt"
-)
-
 type LRUCache struct {
 	size     int
 	capacity int
@@ -26,7 +22,7 @@ func initDLinkedNode(key, value int) *DLinkedNode {
 	}
 }
 
-func Constructor(capacity int) LRUCache {
+func NewLRUCache(capacity int) LRUCache {
 	l := LRUCache{
 		capacity: capacity,
 		head:     initDLinkedNode(0, 0),
@@ -91,13 +87,4 @@ func (t *LRUCache) removeTail() *DLinkedNode {
 	node := t.tail.prev
 	t.removeNode(node)
 	return node
-}
-
-func algorithms() {
-	obj := Constructor(3)
-	obj.Put(1, 2)
-	obj.Put(2, 3)
-	obj.Put(3, 4)
-
-	fmt.Println(obj.Get(1))
 }
