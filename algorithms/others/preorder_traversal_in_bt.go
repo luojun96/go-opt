@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func preorderTraversal(root *TreeNode) []int {
 	var vals []int

@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/diagonal-traverse/
 // input: mat = [[1,2,3],[4,5,6],[7,8,9]]

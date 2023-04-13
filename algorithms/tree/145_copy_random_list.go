@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/fu-za-lian-biao-de-fu-zhi-lcof/
 type Node struct {

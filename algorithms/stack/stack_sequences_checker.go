@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func validateStackSequences(pushed []int, popped []int) bool {
 	if len(pushed) > 0 && len(popped) > 0 {

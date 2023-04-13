@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/P5rCT8/
 // input:  root = [2,1,3], p = 1

@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/dui-cheng-de-er-cha-shu-lcof/
 func isSymmetric(root *TreeNode) bool {

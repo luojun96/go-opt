@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 import (
 	"math/rand"
@@ -37,4 +37,4 @@ func partition(a []int, l, r int) int {
 	a[i+1], a[r] = a[r], a[i+1]
 	return i + 1
 }
-func main() {}
+func algorithms() {}

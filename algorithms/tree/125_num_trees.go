@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/unique-binary-search-trees/
 // input: n = 3

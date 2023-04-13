@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func lengthOfLongestSubstring(s string) int {
 	m := map[byte]int{}

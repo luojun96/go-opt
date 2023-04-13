@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/
 // input: root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 5

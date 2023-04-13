@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/fan-zhuan-dan-ci-shun-xu-lcof/
 // input: "the sky is blue"

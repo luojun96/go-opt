@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/description/
 // input: nums = [2,2,3,0,1]

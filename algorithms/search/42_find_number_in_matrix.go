@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/
 // input:

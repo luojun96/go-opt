@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/duplicate-zeros/
 // input: arr = [1,0,2,3,0,4,5,0]

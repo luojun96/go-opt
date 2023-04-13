@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func findKthLargest(nums []int, k int) int {
 	heapSize := len(nums)

@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/two-sum/
 // input: nums = [2,7,11,15], target = 9

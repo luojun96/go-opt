@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func search_in_non_duplidated_array(array []int, value int) int {
 	low, high := 0, len(array)-1

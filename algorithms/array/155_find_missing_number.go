@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/que-shi-de-shu-zi-lcof/
 // input: [0,1,3]

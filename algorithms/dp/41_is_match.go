@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/zheng-ze-biao-da-shi-pi-pei-lcof/
 func isMatch(s string, p string) bool {

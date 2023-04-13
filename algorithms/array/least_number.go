@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func getLeasNumbers(arr []int, k int) []int {
 	i := quickSelect(arr, 0, len(arr)-1, k)

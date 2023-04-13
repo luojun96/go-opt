@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
 // e: input = [7, 5, 6, 4]

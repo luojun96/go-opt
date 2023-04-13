@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/
 // input: n = 7

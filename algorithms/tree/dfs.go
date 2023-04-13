@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func dfs(node *TreeNode, target *TreeNode, visited map[*TreeNode]bool) bool {
 	if node.Val == target.Val {

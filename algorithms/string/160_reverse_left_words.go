@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/
 // input: s = "abcdefg", k = 2

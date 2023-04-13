@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func firstMissingPositive(nums []int) int {
 	n := len(nums)

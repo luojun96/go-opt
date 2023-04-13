@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/WhsWhI/
 
@@ -27,6 +27,6 @@ func longestConsecutive(nums []int) int {
 	}
 	return longest
 }
-func main() {
+func algorithms() {
 	fmt.Println("vim-go")
 }

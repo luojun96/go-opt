@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/WGki4K/description/
 func singleNumber(nums []int) int {

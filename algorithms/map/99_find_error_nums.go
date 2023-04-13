@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func findErrorNums(nums []int) []int {
 	cnt := map[int]int{}

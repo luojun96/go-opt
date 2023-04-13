@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func zigzagLevelOrder(root *TreeNode) [][]int {
 	if root == nil {

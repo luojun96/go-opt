@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/
 // https://leetcode.com/problems/partition-to-k-equal-sum-subsets/discuss/2131489/Java-backtracking-solution

@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/merge-k-sorted-lists/
 // input: lists = [[1,4,5],[1,3,4],[2,6]]

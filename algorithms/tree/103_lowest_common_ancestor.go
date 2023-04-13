@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/
 // input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1

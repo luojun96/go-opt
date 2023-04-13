@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/flip-string-to-monotone-increasing/
 // input: s = "00110"

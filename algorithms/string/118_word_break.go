@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/word-break/
 // input: s = "leetcode", wordDict = ["leet", "code"]

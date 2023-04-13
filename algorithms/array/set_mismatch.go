@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/set-mismatch/
 // input: nums = [1,2,2,4]

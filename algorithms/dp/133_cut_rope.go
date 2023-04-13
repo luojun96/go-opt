@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func cuttingRope(n int) int {
 	const mod int = 1e9 + 7

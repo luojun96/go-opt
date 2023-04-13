@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/majority-element/
 // input: nums = [3,2,3]

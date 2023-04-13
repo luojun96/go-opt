@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/
 // input: matrix = [[1,2,3],[4,5,6],[7,8,9]]

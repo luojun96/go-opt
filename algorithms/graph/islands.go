@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 import "fmt"
 
@@ -63,6 +63,6 @@ func bfs(grid [][]byte, r, c int) {
 		}
 	}
 }
-func main() {
+func algorithms() {
 	fmt.Println("vim-go")
 }

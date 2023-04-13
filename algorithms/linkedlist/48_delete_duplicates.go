@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/remove-duplicates-from-sorted-list/
 // input: head = [1,1,2]

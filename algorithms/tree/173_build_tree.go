@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
 func buildTreeByInorderAndPostorder(inorder []int, postorder []int) *TreeNode {

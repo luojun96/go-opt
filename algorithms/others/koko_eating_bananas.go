@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func minEatingSpeed(piles []int, h int) int {
 	max := 0

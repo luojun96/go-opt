@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 import "fmt"
 
@@ -61,7 +61,7 @@ func printQueen(a []int) [][]string {
 	return res
 }
 
-func main() {
+func algorithms() {
 	res := solveNQueens(8)
 	for _, v := range res {
 		fmt.Println(v)

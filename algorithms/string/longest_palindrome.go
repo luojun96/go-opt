@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/longest-palindromic-substring/
 // input: s = "babad"

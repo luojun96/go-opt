@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/k-diff-pairs-in-an-array/
 // input: nums = [3, 1, 4, 1, 5], k = 2

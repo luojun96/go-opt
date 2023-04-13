@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/delete-node-in-a-bst/
 // 二叉搜索树的节点删除分三种情况处理

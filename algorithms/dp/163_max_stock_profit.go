@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/gu-piao-de-zui-da-li-run-lcof/
 // input: [7,1,5,3,6,4]

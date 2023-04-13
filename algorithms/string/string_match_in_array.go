@@ -1,5 +1,5 @@
 // https://leetcode.cn/problems/string-matching-in-an-array/
-package main
+package algorithms
 
 import (
 	"strings"

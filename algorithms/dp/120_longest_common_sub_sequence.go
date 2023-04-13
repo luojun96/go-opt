@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/longest-common-subsequence/?company_slug=bilibili
 // input: text1 = "abcde", text2 = "ace"

@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/jian-sheng-zi-lcof/
 // input: 10

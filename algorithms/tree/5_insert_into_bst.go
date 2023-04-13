@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/insert-into-a-binary-search-tree/solutions/
 // input: root = [4,2,7,1,3], val = 5

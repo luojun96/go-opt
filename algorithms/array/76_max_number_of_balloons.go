@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/maximum-number-of-balloons/
 // input: text = "nlaebolko"

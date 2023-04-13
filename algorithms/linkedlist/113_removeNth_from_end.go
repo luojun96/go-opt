@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/remove-nth-node-from-end-of-list/
 // input: head = [1,2,3,4,5], n = 2

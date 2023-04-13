@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/coin-change/
 // input: coins = [1, 2, 5], amount = 11

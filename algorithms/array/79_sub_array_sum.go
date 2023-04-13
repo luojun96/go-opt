@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/subarray-sum-equals-k/
 // input: nums = [1,1,1], k = 2

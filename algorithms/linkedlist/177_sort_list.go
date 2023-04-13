@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/sort-list/
 func sortList(head *ListNode) *ListNode {

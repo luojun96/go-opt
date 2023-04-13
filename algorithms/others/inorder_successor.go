@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func inorderSucessor(root *TreeNode, p *TreeNode) *TreeNode {
 	var successor *TreeNode

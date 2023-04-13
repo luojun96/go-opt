@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/number-of-islands/solutions/
 func numIslands(grid [][]byte) int {

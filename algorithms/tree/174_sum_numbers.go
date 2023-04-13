@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/sum-root-to-leaf-numbers/
 func sumNumbers(root *TreeNode) int {

@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/palindrome-linked-list/
 // input: head = [1,2,2,1]

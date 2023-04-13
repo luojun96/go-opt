@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 type treeNode struct {
 	Val int

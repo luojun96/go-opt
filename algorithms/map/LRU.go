@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 import (
 	"fmt"
@@ -93,7 +93,7 @@ func (t *LRUCache) removeTail() *DLinkedNode {
 	return node
 }
 
-func main() {
+func algorithms() {
 	obj := Constructor(3)
 	obj.Put(1, 2)
 	obj.Put(2, 3)

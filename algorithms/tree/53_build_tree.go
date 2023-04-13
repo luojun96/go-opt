@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/
 // input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]

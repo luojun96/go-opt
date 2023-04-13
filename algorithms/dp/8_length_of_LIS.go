@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/longest-increasing-subsequence/
 // input: nums = [10,9,2,5,3,7,101,18]

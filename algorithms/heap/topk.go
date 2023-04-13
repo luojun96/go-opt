@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 import (
 	"container/heap"
@@ -47,7 +47,7 @@ func findKthLargest(nums []int, k int) int {
 	return (heap.Pop(&h)).(int)
 }
 
-// func main() {
+// func algorithms() {
 // 	nums := []int{1, 5, 2, 6, 3}
 // 	k := 3
 // 	res := findKthLargest(nums, k)

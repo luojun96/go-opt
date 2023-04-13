@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/description/
 // input: m = 2, n = 3, k = 1

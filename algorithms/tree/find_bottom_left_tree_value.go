@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/find-bottom-left-tree-value/
 // input: root = [2,1,3]

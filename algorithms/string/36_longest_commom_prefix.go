@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/longest-common-prefix/
 // input: strs = ["flower","flow","flight"]

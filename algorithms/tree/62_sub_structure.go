@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/
 // input: A = [1,2,3], B = [3,1]

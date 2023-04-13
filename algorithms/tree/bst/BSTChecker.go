@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func main() {
+func algorithms() {
 	leftNode := TreeNode{Val: 1, Left: nil, Right: nil}
 	rightNode := TreeNode{Val: 3, Left: nil, Right: nil}
 	root := TreeNode{

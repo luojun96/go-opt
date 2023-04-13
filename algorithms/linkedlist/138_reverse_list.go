@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/fan-zhuan-lian-biao-lcof/
 // input: 1->2->3->4->5->NULL

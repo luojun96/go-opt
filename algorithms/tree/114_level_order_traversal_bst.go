@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 func levelOrderBottom(root *TreeNode) [][]int {
 	levelOrder := [][]int{}

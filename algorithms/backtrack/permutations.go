@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/permutations/
 // input: nums = [1,2,3]

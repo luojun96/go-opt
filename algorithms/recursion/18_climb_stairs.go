@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 // https://leetcode.cn/problems/climbing-stairs/
 func climbStairs(n int) int {

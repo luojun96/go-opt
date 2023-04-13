@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 type ListNode struct {
 	Val  int
