@@ -1,4 +1,4 @@
-package algorithms
+package others
 
 func findMin(nums []int) int {
 	l, r := 0, len(nums)-1

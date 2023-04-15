@@ -1,4 +1,4 @@
-package algorithms
+package cmap
 
 func findErrorNums(nums []int) []int {
 	cnt := map[int]int{}

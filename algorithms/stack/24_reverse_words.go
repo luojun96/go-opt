@@ -1,4 +1,4 @@
-package algorithms
+package stack
 
 // https://leetcode.cn/problems/reverse-words-in-a-string/description/
 // input: s = "the sky is blue"

@@ -1,4 +1,4 @@
-package algorithms
+package string
 
 // https://leetcode.cn/problems/reverse-string/
 // input: s = ["h","e","l","l","o"]

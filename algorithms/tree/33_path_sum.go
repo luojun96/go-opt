@@ -1,4 +1,4 @@
-package algorithms
+package tree
 
 // https://leetcode.cn/problems/path-sum/
 // input: root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22

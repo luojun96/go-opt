@@ -1,4 +1,4 @@
-package algorithms
+package search
 
 // https://leetcode.cn/problems/sqrtx/
 // input: x = 4

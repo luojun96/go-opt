@@ -1,4 +1,4 @@
-package algorithms
+package linkedlist
 
 import "math/rand"
 

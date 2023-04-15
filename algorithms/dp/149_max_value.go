@@ -1,4 +1,4 @@
-package algorithms
+package dp
 
 // https://leetcode.cn/problems/li-wu-de-zui-da-jie-zhi-lcof/
 // input:

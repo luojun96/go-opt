@@ -1,4 +1,4 @@
-package algorithms
+package stack
 
 // https://leetcode.cn/problems/design-twitter/description/?languageTags=golang
 type Node struct {

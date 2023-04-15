@@ -1,4 +1,4 @@
-package algorithms
+package backtrack
 
 // https://leetcode.cn/problems/combinations/
 // input: n = 4, k = 2

@@ -1,4 +1,4 @@
-package algorithms
+package tree
 
 // https://leetcode.cn/problems/maximum-depth-of-binary-tree/
 // input: [3,9,20,null,null,15,7]

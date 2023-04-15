@@ -1,4 +1,4 @@
-package algorithms
+package linkedlist
 
 // https://leetcode.cn/problems/LGjMqU/
 func reorderList(head *ListNode) {

@@ -1,4 +1,4 @@
-package algorithms
+package hash
 
 import "strings"
 

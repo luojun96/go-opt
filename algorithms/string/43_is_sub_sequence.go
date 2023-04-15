@@ -1,4 +1,4 @@
-package algorithms
+package string
 
 // https://leetcode.cn/problems/is-subsequence
 // input: s = "abc", t = "ahbgdc"

@@ -1,4 +1,4 @@
-package algorithms
+package tree
 
 import (
 	"math"

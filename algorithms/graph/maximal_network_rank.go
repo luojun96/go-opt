@@ -1,4 +1,4 @@
-package algorithms
+package graph
 
 // https://leetcode.cn/problems/maximal-network-rank/
 // n cities, roads, and roads[i] = [ai, bi]

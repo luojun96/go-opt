@@ -1,4 +1,4 @@
-package algorithms
+package array
 
 // https://leetcode.cn/problems/WhsWhI/
 // input: nums = [100,4,200,1,3,2]

@@ -1,4 +1,4 @@
-package algorithms
+package dp
 
 // https://leetcode.cn/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/
 // input: nums = [-2,1,-3,4,-1,2,1,-5,4]

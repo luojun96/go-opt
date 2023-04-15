@@ -1,4 +1,4 @@
-package algorithms
+package linkedlist
 
 // https://leetcode.cn/problems/swap-nodes-in-pairs/
 // input: head = [1, 2, 3, 4]

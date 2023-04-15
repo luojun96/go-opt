@@ -1,4 +1,4 @@
-package algorithms
+package tree
 
 // https://leetcode.cn/problems/er-cha-shu-de-jing-xiang-lcof/
 // input: root = [4,2,7,1,3,6,9]

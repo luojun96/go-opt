@@ -1,4 +1,4 @@
-package algorithms
+package linkedlist
 
 // https://leetcode.cn/problems/add-two-numbers-ii/
 // input: l1 = [7,2,4,3], l2 = [5,6,4]

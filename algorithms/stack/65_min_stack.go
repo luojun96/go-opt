@@ -1,4 +1,4 @@
-package algorithms
+package stack
 
 // https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/
 type MinStack struct {

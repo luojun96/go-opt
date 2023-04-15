@@ -1,4 +1,4 @@
-package algorithms
+package math
 
 // https://leetcode.cn/problems/k-th-symbol-in-grammar
 // input: n = 2, k = 1

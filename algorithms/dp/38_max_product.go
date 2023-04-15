@@ -1,4 +1,4 @@
-package algorithms
+package dp
 
 // https://leetcode.cn/problems/maximum-product-subarray/
 // input: nums = [2,3,-2,4]

@@ -1,4 +1,4 @@
-package algorithms
+package array
 
 // https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array/
 // input: nums = [4,3,2,7,8,2,3,1]

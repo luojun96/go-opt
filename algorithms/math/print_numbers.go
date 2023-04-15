@@ -1,4 +1,4 @@
-package algorithms
+package math
 
 import "fmt"
 
@@ -7,6 +7,6 @@ import "fmt"
 func printNumbers(n int) []int {
 	return nil
 }
-func algorithms() {
+func math() {
 	fmt.Println("vim-go")
 }

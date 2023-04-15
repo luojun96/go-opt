@@ -1,4 +1,4 @@
-package algorithms
+package linkedlist
 
 // https://leetcode.cn/problems/lru-cache/
 type DLinkedNode struct {

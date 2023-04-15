@@ -1,4 +1,4 @@
-package algorithms
+package linkedlist
 
 // https://leetcode.cn/problems/middle-of-the-linked-list/
 // input: [1,2,3,4,5]

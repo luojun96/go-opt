@@ -1,4 +1,4 @@
-package algorithms
+package array
 
 // https://leetcode.cn/problems/koko-eating-bananas/
 // input: piles = [3, 6, 7, 11], h = 8

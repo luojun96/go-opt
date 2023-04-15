@@ -1,4 +1,4 @@
-package algorithms
+package others
 
 func postOrderTraversal(root *TreeNode) (res []int) {
 	var postorder func(*TreeNode)

@@ -1,4 +1,4 @@
-package algorithms
+package array
 
 // https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/
 func findNumberIn2DArray(matrix [][]int, target int) bool {

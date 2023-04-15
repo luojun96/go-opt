@@ -1,4 +1,4 @@
-package algorithms
+package string
 
 // https://leetcode.cn/problems/longest-palindromic-substring/
 // 动态规划方法

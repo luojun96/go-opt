@@ -1,4 +1,4 @@
-package algorithms
+package others
 
 func inorderTraversal(root *TreeNode) (res []int) {
 	var inorder func(node *TreeNode)

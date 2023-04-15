@@ -1,4 +1,4 @@
-package algorithms
+package hash
 
 // https://leetcode.cn/problems/group-the-people-given-the-group-size-they-belong-to/
 

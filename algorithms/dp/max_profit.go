@@ -1,4 +1,4 @@
-package algorithms
+package dp
 
 // 状态转移方程：
 // dp[i][1][0] = max(dp[i-1][1][0], dp[i-1][1][1] + prices[i])

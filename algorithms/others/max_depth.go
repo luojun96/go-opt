@@ -1,4 +1,4 @@
-package algorithms
+package others
 
 func maxDepth(root *treeNode) int {
 	if root == nil {

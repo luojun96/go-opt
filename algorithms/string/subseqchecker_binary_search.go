@@ -1,4 +1,4 @@
-package algorithms
+package string
 
 import (
 	"fmt"
@@ -52,7 +52,7 @@ func getLeftBound(a []int, t int) int {
 	return -1
 }
 
-func algorithms() {
+func string() {
 	res := isSubsequence01("abce", "adbecc")
 	fmt.Println(res)
 }

@@ -1,4 +1,4 @@
-package algorithms
+package dp
 
 // https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/
 // input: [7,1,5,3,6,4]

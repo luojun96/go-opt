@@ -1,4 +1,4 @@
-package algorithms
+package string
 
 // https://leetcode.cn/problems/ti-huan-kong-ge-lcof/
 

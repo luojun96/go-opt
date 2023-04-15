@@ -1,4 +1,4 @@
-package algorithms
+package graph
 
 type Node struct {
 	Val       int

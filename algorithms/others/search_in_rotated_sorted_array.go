@@ -1,4 +1,4 @@
-package algorithms
+package others
 
 func search(nums []int, target int) int {
 	n := len(nums)

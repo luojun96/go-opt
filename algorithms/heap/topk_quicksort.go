@@ -1,4 +1,4 @@
-package algorithms
+package heap
 
 import (
 	"fmt"
@@ -31,7 +31,7 @@ func partition(a []int, l, r int) int {
 	return i
 }
 
-func algorithms() {
+func heap() {
 	nums := []int{3, 2, 3, 1, 2, 4, 5, 5, 6}
 	k := 4
 	res := findKthLargest01(nums, k)

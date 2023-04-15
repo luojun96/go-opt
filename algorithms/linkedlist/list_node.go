@@ -1,4 +1,4 @@
-package algorithms
+package linkedlist
 
 type ListNode struct {
 	Val  int

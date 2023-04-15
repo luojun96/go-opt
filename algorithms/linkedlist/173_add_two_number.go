@@ -1,4 +1,4 @@
-package algorithms
+package linkedlist
 
 // https://leetcode.cn/problems/lMSNwu/
 // input: 2->4->3, 5->6->4

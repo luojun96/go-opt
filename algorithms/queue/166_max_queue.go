@@ -1,4 +1,4 @@
-package algorithms
+package queue
 
 // https://leetcode.cn/problems/dui-lie-de-zui-da-zhi-lcof/
 type MaxQueue struct {

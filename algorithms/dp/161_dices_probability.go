@@ -1,4 +1,4 @@
-package algorithms
+package dp
 
 // https://leetcode.cn/problems/nge-tou-zi-de-dian-shu-lcof/
 // input: 2

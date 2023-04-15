@@ -1,4 +1,4 @@
-package algorithms
+package tree
 
 // https://leetcode.cn/problems/recover-binary-search-tree/
 func recoverTree(root *TreeNode) {

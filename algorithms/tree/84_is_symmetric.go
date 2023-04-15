@@ -1,4 +1,4 @@
-package algorithms
+package tree
 
 // https://leetcode.cn/problems/symmetric-tree/
 // input: root = [1,2,2,3,4,4,3]

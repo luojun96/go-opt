@@ -1,4 +1,4 @@
-package algorithms
+package tree
 
 // https://leetcode.cn/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/
 func mylowestCommonAncestor(root *TreeNode, p *TreeNode, q *TreeNode) *TreeNode {

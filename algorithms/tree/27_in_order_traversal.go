@@ -1,4 +1,4 @@
-package algorithms
+package tree
 
 // https://leetcode.cn/problems/binary-tree-inorder-traversal/
 // input: root = [1,null,2,3]

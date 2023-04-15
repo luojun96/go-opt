@@ -1,4 +1,4 @@
-package algorithms
+package linkedlist
 
 // https://leetcode.cn/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/
 // input: 1->2->4, 1->3->4

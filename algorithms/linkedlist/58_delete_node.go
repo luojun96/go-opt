@@ -1,4 +1,4 @@
-package algorithms
+package linkedlist
 
 // https://leetcode.cn/problems/shan-chu-lian-biao-de-jie-dian-lcof/
 // input: head = [4,5,1,9], val = 5

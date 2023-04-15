@@ -1,4 +1,4 @@
-package algorithms
+package dp
 
 import (
 	"strconv"

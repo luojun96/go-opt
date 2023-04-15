@@ -1,4 +1,4 @@
-package algorithms
+package others
 
 type DLinkedNode struct {
 	key   int

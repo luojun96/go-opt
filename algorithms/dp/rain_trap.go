@@ -1,4 +1,4 @@
-package algorithms
+package dp
 
 func trap(height []int) int {
 	n := len(height)

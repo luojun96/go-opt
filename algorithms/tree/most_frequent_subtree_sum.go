@@ -1,4 +1,4 @@
-package algorithms
+package tree
 
 // https://leetcode.cn/problems/most-frequent-subtree-sum/
 // input: root = [5,2,-5]

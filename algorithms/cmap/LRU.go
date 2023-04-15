@@ -1,4 +1,4 @@
-package algorithms
+package cmap
 
 type LRUCache struct {
 	size     int

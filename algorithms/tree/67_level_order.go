@@ -1,4 +1,4 @@
-package algorithms
+package tree
 
 // https://leetcode.cn/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/
 // input: [3,9,20,null,null,15,7]

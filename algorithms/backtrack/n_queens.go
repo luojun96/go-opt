@@ -1,4 +1,4 @@
-package algorithms
+package backtrack
 
 import "fmt"
 
@@ -58,7 +58,7 @@ func printQueen(a []int) [][]string {
 	return res
 }
 
-func algorithms() {
+func backtrack() {
 	res := solveNQueens(8)
 	for _, v := range res {
 		fmt.Println(v)

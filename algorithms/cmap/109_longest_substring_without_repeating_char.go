@@ -1,4 +1,4 @@
-package algorithms
+package cmap
 
 func lengthOfLongestSubstring(s string) int {
 	m := map[byte]int{}

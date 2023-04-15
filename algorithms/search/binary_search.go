@@ -1,4 +1,4 @@
-package algorithms
+package search
 
 // array doesn't contain duplicate item
 func search0(array []int, value int) int {

@@ -1,4 +1,4 @@
-package algorithms
+package stack
 
 // https://leetcode.cn/problems/valid-parentheses/
 // input: s = "()[]{}"

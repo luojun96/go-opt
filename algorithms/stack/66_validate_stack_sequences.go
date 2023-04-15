@@ -1,4 +1,4 @@
-package algorithms
+package stack
 
 // https://leetcode.cn/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/
 // input: pushed = [1,2,3,4,5], popped = [4,5,3,2,1]

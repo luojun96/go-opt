@@ -1,4 +1,4 @@
-package algorithms
+package backtrack
 
 // https://leetcode.cn/problems/subsets/
 // nput: nums = [1,2,3]

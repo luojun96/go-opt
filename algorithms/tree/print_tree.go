@@ -1,4 +1,4 @@
-package algorithms
+package tree
 
 func levelOrder1(root *TreeNode) [][]int {
 	if root == nil {

@@ -1,4 +1,4 @@
-package algorithms
+package others
 
 func hasPathSumByBFS(root *TreeNode, sum int) bool {
 	if root == nil {

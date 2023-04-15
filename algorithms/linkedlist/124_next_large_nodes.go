@@ -1,4 +1,4 @@
-package algorithms
+package linkedlist
 
 // https://leetcode.cn/problems/next-greater-node-in-linked-list/
 // input: [2,1,5]

@@ -1,4 +1,4 @@
-package algorithms
+package array
 
 // https://leetcode.cn/problems/first-missing-positive/
 // input: nums = [1,2,0]

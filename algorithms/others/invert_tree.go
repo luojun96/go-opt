@@ -1,4 +1,4 @@
-package algorithms
+package others
 
 func invertTree(root *TreeNode) *TreeNode {
 	if root == nil {

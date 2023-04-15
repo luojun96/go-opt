@@ -1,4 +1,4 @@
-package algorithms
+package search
 
 // https://leetcode.cn/problems/search-in-rotated-sorted-array/description/
 // input: nums = [4,5,6,7,0,1,2], target = 0

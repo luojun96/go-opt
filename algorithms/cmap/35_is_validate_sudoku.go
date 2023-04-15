@@ -1,4 +1,4 @@
-package algorithms
+package cmap
 
 // https://leetcode.cn/problems/valid-sudoku/
 func isValidSudoku(board [][]byte) bool {
