@@ -1,10 +1,6 @@
 package heap
 
-import (
-	"fmt"
-)
-
-func findKthLargest01(nums []int, k int) int {
+func findKthLargesByNormalQuickSelect(nums []int, k int) int {
 	return quickSelect(nums, 0, len(nums)-1, len(nums)-k)
 }
 
@@ -29,11 +25,4 @@ func partition(a []int, l, r int) int {
 	}
 	a[i], a[r] = a[r], a[i]
 	return i
-}
-
-func heap() {
-	nums := []int{3, 2, 3, 1, 2, 4, 5, 5, 6}
-	k := 4
-	res := findKthLargest01(nums, k)
-	fmt.Println(res)
 }

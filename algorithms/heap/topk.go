@@ -28,6 +28,7 @@ func (h *intHeap) Pop() interface{} {
 	*h = (*h)[:len(*h)-1]
 	return res
 }
+
 func findKthLargest(nums []int, k int) int {
 	h := make(intHeap, 0, k)
 	heap.Init(&h)
