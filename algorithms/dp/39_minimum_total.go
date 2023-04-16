@@ -4,6 +4,14 @@ import "math"
 
 // https://leetcode.cn/problems/triangle/
 func minimumTotal(triangle [][]int) int {
+	var min func(x, y int) int
+	min = func(x, y int) int {
+		if x > y {
+			return y
+		}
+		return x
+	}
+
 	n := len(triangle)
 	f := make([][]int, n)
 	for i := 0; i < n; i++ {
@@ -24,11 +32,4 @@ func minimumTotal(triangle [][]int) int {
 		res = min(res, f[n-1][i])
 	}
 	return res
-}
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
 }
