@@ -58,7 +58,7 @@ func printQueen(a []int) [][]string {
 	return res
 }
 
-func backtrack() {
+func doBacktrack() {
 	res := solveNQueens(8)
 	for _, v := range res {
 		fmt.Println(v)

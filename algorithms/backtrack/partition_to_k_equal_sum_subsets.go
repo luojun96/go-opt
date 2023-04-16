@@ -1,29 +1,49 @@
 package backtrack
 
+import "sort"
+
 // https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/
 // https://leetcode.com/problems/partition-to-k-equal-sum-subsets/discuss/2131489/Java-backtracking-solution
 func canPartitionKSubsets(nums []int, k int) bool {
-	sum := 0
-	for i := 0; i < len(nums); i++ {
-		sum += nums[i]
+	all := 0
+	for _, v := range nums {
+		all += v
 	}
 
-	if sum%k != 0 {
+	if all%k > 0 {
 		return false
 	}
 
-	used := make([]bool, len(nums))
-	target := sum / k
+	per := all / k
+	sort.Ints(nums)
+	n := len(nums)
+	if nums[n-1] > per {
+		return false
+	}
 
-	var backtrack func(k int, bucket int, nums []int, start int, used []bool, target int) bool
-	backtrack = func(count, bucket int, _ []int, start int, used []bool, target int) bool {
-		if k == 0 {
+	dp := make([]bool, 1<<n)
+	for i := range dp {
+		dp[i] = true
+	}
+
+	var dfs func(int, int) bool
+	dfs = func(s, p int) bool {
+		if s == 0 {
 			return true
 		}
-
+		if !dp[s] {
+			return dp[s]
+		}
+		dp[s] = false
+		for i, num := range nums {
+			if num+p > per {
+				break
+			}
+			if s>>i&1 > 0 && dfs(s^1<<i, (p+nums[i])%per) {
+				return true
+			}
+		}
 		return false
 	}
-
-	return backtrack(k, 0, nums, 0, used, target)
-
+	return dfs(1<<n-1, 0)
 }
