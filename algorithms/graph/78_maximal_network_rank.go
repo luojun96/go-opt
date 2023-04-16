@@ -1,8 +1,12 @@
 package graph
 
-// https://leetcode.cn/problems/maximal-network-rank/description/
-// input: n = 4, roads = [[0,1],[0,3],[1,2],[1,3]]
-// output: 4
+// https://leetcode.cn/problems/maximal-network-rank/
+// n cities, roads, and roads[i] = [ai, bi]
+// n = 4, roads = [[0,1],[0,3],[1,2],[1,3]]
+// 1. use adjustce table to store the roads and cities, matrix := make([][]int, n)
+// 2. loop the roads data, and set value in matrix, like matrix[0][1] = 1 and matrix[0][1] = 1
+// 3. when loop the roads data, record the count of each city, cities ;= make([]int, n)
+// 4. loop all cities, and found the max connection count
 func maximalNetworkRank(n int, roads [][]int) int {
 	cnt := 0
 	matrix := make([][]int, n)
