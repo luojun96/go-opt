@@ -1,7 +1,7 @@
 package search
 
 // array doesn't contain duplicate item
-func search0(array []int, value int) int {
+func binarySearchNormal(array []int, value int) int {
 	low, high := 0, len(array)-1
 	for low <= high {
 		mid := low + (high-low)/2
@@ -16,11 +16,11 @@ func search0(array []int, value int) int {
 	return -1
 }
 
-// array contain duplicated items, and look for the element which bigger or equal to value
-func search1(array []int, value int) int {
+// array contain duplicated items, and look for the element which is bigger or equal to value
+func binarySearchForLastBigger(array []int, value int) int {
 	low, high := 0, len(array)-1
 	for low <= high {
-		mid := low + (high-low)>>2
+		mid := low + (high-low)>>1
 		if array[mid] >= value {
 			if mid == 0 || array[mid-1] < value {
 				return mid
@@ -35,7 +35,7 @@ func search1(array []int, value int) int {
 }
 
 // look for the last element which is less or equal to value
-func search2(array []int, value int) int {
+func binarySearchForLastLess(array []int, value int) int {
 	low, high := 0, len(array)-1
 	for low <= high {
 		mid := low + (high-low)/2
