@@ -24,7 +24,7 @@ type Twitter struct {
 	user      map[int]*Node
 }
 
-func Constructor() Twitter {
+func NewTwitter() Twitter {
 	return Twitter{
 		time:      0,
 		recentMax: 10,

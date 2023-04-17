@@ -9,7 +9,6 @@ import (
 // input: [3,30,34,5,9]
 // output: "3033459"
 func minNumber(nums []int) string {
-	var res string
 	strs := make([]string, len(nums))
 	for i := 0; i < len(nums); i++ {
 		strs[i] = strconv.Itoa(nums[i])
