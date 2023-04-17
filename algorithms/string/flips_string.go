@@ -20,13 +20,6 @@ func minFlipsMonoIncr(s string) int {
 	return min(dp0, dp1)
 }
 
-func min(x, y int) int {
-	if x > y {
-		return y
-	}
-	return x
-}
-
 func minFlips(s string) int {
 	res := 0
 	foIndex := 0

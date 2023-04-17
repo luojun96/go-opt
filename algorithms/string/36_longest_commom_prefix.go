@@ -29,10 +29,3 @@ func lcp(str1, str2 string) string {
 	}
 	return str1[:index]
 }
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}

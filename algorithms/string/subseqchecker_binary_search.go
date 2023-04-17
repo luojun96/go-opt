@@ -51,8 +51,3 @@ func getLeftBound(a []int, t int) int {
 	}
 	return -1
 }
-
-func string() {
-	res := isSubsequence01("abce", "adbecc")
-	fmt.Println(res)
-}

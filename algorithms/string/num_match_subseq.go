@@ -20,7 +20,7 @@ func numMatchingSubseq(s string, words []string) int {
 		}
 
 		p := -1
-		for _, c = range w {
+		for _, c := range w {
 			ps := pos[c-'a']
 			j := sort.SearchInts(ps, p+1)
 			if j == len(ps) {
@@ -30,4 +30,5 @@ func numMatchingSubseq(s string, words []string) int {
 			p = ps[j]
 		}
 	}
+	return ans
 }
