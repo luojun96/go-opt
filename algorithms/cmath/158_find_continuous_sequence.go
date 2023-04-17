@@ -1,4 +1,4 @@
-package math
+package cmath
 
 // https://leetcode.cn/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/solutions/
 // input: target = 9

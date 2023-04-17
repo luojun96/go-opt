@@ -1,4 +1,4 @@
-package math
+package cmath
 
 // https://leetcode.cn/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/
 // input: n = 5, m = 3

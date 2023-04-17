@@ -1,4 +1,4 @@
-package math
+package cmath
 
 // https://leetcode.cn/problems/fei-bo-na-qi-shu-lie-lcof/
 // input: n = 5

@@ -1,4 +1,4 @@
-package math
+package cmath
 
 import "testing"
 

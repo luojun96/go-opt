@@ -1,4 +1,4 @@
-package math
+package cmath
 
 // https://leetcode.cn/problems/count-primes/
 // input: n = 10,

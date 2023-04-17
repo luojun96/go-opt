@@ -1,4 +1,4 @@
-package math
+package cmath
 
 // https://leetcode.cn/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/
 // intput: x = 2.00000, n = 10

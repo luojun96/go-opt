@@ -1,4 +1,4 @@
-package math
+package cmath
 
 import "math"
 
@@ -13,7 +13,7 @@ func reverse(x int) int {
 		}
 		digit := x % 10
 		x /= 10
-		res = res * 10 + digit
+		res = res*10 + digit
 	}
 	return res
 }
