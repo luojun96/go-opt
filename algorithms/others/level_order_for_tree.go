@@ -1,18 +1,18 @@
 package others
 
-type TreeNode struct {
-	Val int
-	Left *TreeNode
-	Right *TreeNode
+type TNode struct {
+	Val   int
+	Left  *TNode
+	Right *TNode
 }
 
-func levelOrder(root *TreeNode) []int {
+func levelOrderBTree(root *TNode) []int {
 	if root == nil {
 		return nil
 	}
 
 	res := []int{}
-	queue := []*TreeNode{}
+	queue := []*TNode{}
 	if len(queue) > 0 {
 		node := queue[0]
 		queue = queue[1:]

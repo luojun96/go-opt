@@ -21,5 +21,5 @@ func palindrome(s string, l, r int) string {
 		l--
 		r++
 	}
-	return s[l+1, r]
+	return s[l+1 : r]
 }

@@ -27,7 +27,7 @@ func getTime(piles []int, speed int) int64 {
 	time := int64(0)
 	for _, p := range piles {
 		currTime := (p + speed - 1) / speed
-		time += int6(currTime)
+		time += int64(currTime)
 	}
 	return time
 }

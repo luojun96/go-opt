@@ -36,5 +36,5 @@ func isValid(root *TreeNode, lower, upper int) bool {
 		return false
 	}
 
-	return isValid(root.Left, lower, lower, root.Val) && isValid(root.Right, root.Val, upper)
+	return isValid(root.Left, lower, root.Val) && isValid(root.Right, root.Val, upper)
 }

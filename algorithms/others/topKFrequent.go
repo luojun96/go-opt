@@ -39,7 +39,7 @@ func topKFrequent(nums []int, k int) []int {
 		m[v]++
 	}
 
-	h := IHeap{}
+	h := &IHeap{}
 	heap.Init(h)
 
 	for u, v := range m {

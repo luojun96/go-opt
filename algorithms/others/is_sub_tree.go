@@ -1,19 +1,19 @@
 package others
 
 type treeNode struct {
-	Val int
-	Left *treeNode
+	Val   int
+	Left  *treeNode
 	Right *treeNode
 }
 
-func isSubStructure(a *treeNode, b treeNode) bool {
+func isSubStructure(a *treeNode, b *treeNode) bool {
 	res := false
 	if a != nil && b != nil {
 		if a.Val == b.Val {
-			res = isSubTree(a.Left, b)	
+			res = isSubTree(a.Left, b)
 		}
 		if !res {
-			res = isSubStructure(a.Left, b)	
+			res = isSubStructure(a.Left, b)
 		}
 		if !res {
 			res = isSubStructure(a.Right, b)
@@ -24,15 +24,15 @@ func isSubStructure(a *treeNode, b treeNode) bool {
 
 func isSubTree(a *treeNode, b *treeNode) bool {
 	if b == nil {
-		return true	
+		return true
 	}
 
 	if a == nil {
-		return false	
+		return false
 	}
 
 	if a.Val != b.Val {
-		return false	
+		return false
 	}
 
 	return isSubTree(a.Left, b.Left) && isSubTree(a.Right, b.Right)

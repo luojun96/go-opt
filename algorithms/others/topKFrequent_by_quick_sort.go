@@ -5,13 +5,13 @@ import (
 	"time"
 )
 
-func topKFrequent(nums []int, k int) []int {
+func topKFrequentByQuickSort(nums []int, k int) []int {
 	occurrences := map[int]int{}
 	for _, num := range nums {
 		occurrences[num]++
 	}
-	values := [][2]int{}
-	for k, v := range occurrences {
+	values := [][]int{}
+	for key, value := range occurrences {
 		values = append(values, []int{key, value})
 	}
 	ret := make([]int, k)
@@ -20,12 +20,12 @@ func topKFrequent(nums []int, k int) []int {
 	return ret
 }
 
-func quickSort(values [][2]int, start, end int, ret []int, retIndex, k int) {
+func quickSort(values [][]int, start, end int, ret []int, retIndex, k int) {
 	picked := rand.Int()%(end-start+1) + start
 	values[picked], values[start] = values[start], values[picked]
 
 	pivot := values[start][1]
-	index = start
+	index := start
 
 	for i := start + 1; i <= end; i++ {
 		if values[i][1] >= pivot {
