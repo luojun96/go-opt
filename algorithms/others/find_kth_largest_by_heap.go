@@ -1,6 +1,6 @@
 package others
 
-func findKthLargest(nums []int, k int) int {
+func findKthLargestByHeap(nums []int, k int) int {
 	heapSize := len(nums)
 	buildMaxHeap(nums, heapSize)
 	for i := len(nums) - 1; i >= len(nums)-k+1; i-- {

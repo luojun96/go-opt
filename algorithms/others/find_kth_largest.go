@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func findKthLargest(nums []int, k int) int {
+func findKthLargestByQuickSelect(nums []int, k int) int {
 	rand.Seed(time.Now().UnixNano())
 	return quickSelect(nums, 0, len(nums)-1, len(nums)-k)
 }
