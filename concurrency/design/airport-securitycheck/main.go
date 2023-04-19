@@ -13,7 +13,7 @@ func main() {
 	for i := 0; i < passengers; i++ {
 		queue <- struct{}{}
 	}
-	time.Sleep(5 * time.Second)
+	time.Sleep(60 * time.Second)
 	close(queue)
-	time.Sleep(1000 * time.Second)
+	time.Sleep(120 * time.Second)
 }

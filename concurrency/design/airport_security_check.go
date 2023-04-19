@@ -29,7 +29,7 @@ func xRayCheck(id string) int {
 	return xRayCheckTmCost
 }
 
-func start(id string, f func(string) int, next chan<- struct{}) (chan<- struct{}, chan<- struct{}, chan<- struct{}) {
+func start(id string, f func(string) int, next chan<- struct{}) (chan<- struct{}, chan<- struct{}, <-chan int) {
 	queue := make(chan struct{}, 10)
 	quit := make(chan struct{})
 	result := make(chan int)
@@ -57,7 +57,7 @@ func start(id string, f func(string) int, next chan<- struct{}) (chan<- struct{}
 
 func newAirportSecurityCheckChannel(id string, queue <-chan struct{}) {
 	go func(id string) {
-		fmt.Printf("goroutine-%d: airportSecurityCheckChannel is ready...\n")
+		fmt.Printf("goroutine-%s: airportSecurityCheckChannel is ready...\n", id)
 
 		// start xRayCheck routine
 		queue3, quit3, result3 := start(id, xRayCheck, nil)
@@ -74,13 +74,12 @@ func newAirportSecurityCheckChannel(id string, queue <-chan struct{}) {
 					close(quit2)
 					close(quit3)
 					total := max(<-result1, <-result2, <-result3)
-					fmt.Printf("goroutine-%d: airportSecurityCheckChannel time cost:%d\n", id, total)
-					fmt.Printf("goroutine-%d: airportSecurityCheckChannel closed\n", id)
+					fmt.Printf("goroutine-%s: airportSecurityCheckChannel time cost:%d\n", id, total)
+					fmt.Printf("goroutine-%s: airportSecurityCheckChannel closed\n", id)
 					return
 				}
 				queue1 <- v
 			default:
-
 			}
 		}
 	}(id)
@@ -97,17 +96,17 @@ func max(args ...int) int {
 }
 
 func main() {
-	passengers := 30
+	passengers := 200
 	queue := make(chan struct{}, 30)
 	newAirportSecurityCheckChannel("channel1", queue)
 	newAirportSecurityCheckChannel("channel2", queue)
 	newAirportSecurityCheckChannel("channel3", queue)
 
-	time.Sleep(5 * time.Duration)
+	time.Sleep(5 * time.Second)
 	for i := 0; i < passengers; i++ {
-		queue <- struct{}	
+		queue <- struct{}{}
 	}
-	time.Sleep(5 * time.Duration)
+	time.Sleep(time.Duration(100 * time.Second))
 	close(queue)
-	time.Sleep(1000 * time.Second)
+	time.Sleep(100 * time.Second)
 }
