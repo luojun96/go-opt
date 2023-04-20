@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"strconv"
 	"sync"
 )
 
@@ -24,7 +24,8 @@ func New() ConcurrentMap {
 }
 
 func (m ConcurrentMap) GetShard(key string) *ConcurrentMapShared {
-	return m[uint(fnv32(key))%uint(SHARD_COUNT)]
+	i, _ := strconv.Atoi(key)
+	return m[uint(i)%uint(SHARD_COUNT)]
 }
 
 func (m ConcurrentMap) Set(key string, value interface{}) {
@@ -40,7 +41,4 @@ func (m ConcurrentMap) Get(key string) (interface{}, bool) {
 	val, ok := shard.items[key]
 	shard.RUnlock()
 	return val, ok
-}
-func main() {
-	fmt.Println("vim-go")
 }

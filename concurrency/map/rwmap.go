@@ -22,13 +22,13 @@ func (m *RWMap) Get(k int) (int, bool) {
 
 func (m *RWMap) Set(k int, v int) {
 	m.Lock()
-	defer m.UnLock()
+	defer m.Unlock()
 	m.m[k] = v
 }
 
 func (m *RWMap) Delete(k int) {
 	m.Lock()
-	defer m.UnLock()
+	defer m.Unlock()
 	delete(m.m, k)
 }
 
