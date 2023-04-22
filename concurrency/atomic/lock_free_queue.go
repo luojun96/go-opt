@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sync/atomic"
 	"unsafe"
 )
@@ -53,7 +52,7 @@ func (q *LKQueue) Dequeue() interface{} {
 				}
 				cas(&q.tail, tail, next)
 			} else {
-				v := next.value			
+				v := next.value
 				if cas(&q.head, head, next) {
 					return v
 				}
@@ -67,8 +66,4 @@ func load(p *unsafe.Pointer) (n *node) {
 
 func cas(p *unsafe.Pointer, old, new *node) (ok bool) {
 	return atomic.CompareAndSwapPointer(p, unsafe.Pointer(old), unsafe.Pointer(new))
-}
-
-func main() {
-	fmt.Println("vim-go")
 }
