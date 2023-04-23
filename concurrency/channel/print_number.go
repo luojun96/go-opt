@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func main() {
+func doRun() {
 	var ch = make(chan int, 10)
 	for i := 0; i < 10; i++ {
 		select {
