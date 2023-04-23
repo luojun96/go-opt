@@ -54,7 +54,7 @@ func (m *Mutex) IsLocked() bool {
 	return len(m.ch) == 0
 }
 
-func main() {
+func run() {
 	m := NewMutex()
 	ok := m.TryLock()
 	fmt.Printf("locked %v\n", ok)
