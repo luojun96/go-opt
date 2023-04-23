@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func main() {
+func execute() {
 	messages := make(chan int, 10)
 	done := make(chan bool)
 
