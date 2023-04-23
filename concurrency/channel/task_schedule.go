@@ -138,37 +138,39 @@ func faninReflect(chans ...<-chan interface{}) <-chan interface{} {
 		var cases []reflect.SelectCase
 		for _, c := range chans {
 			cases = append(cases, reflect.SelectCase{
-				Dir: reflect.SelectRecv,
+				Dir:  reflect.SelectRecv,
 				Chan: reflect.ValueOf(c),
-			})	
+			})
 		}
 
 		for len(cases) > 0 {
-			i, v, ok := reflect.Select(cases)	
+			i, v, ok := reflect.Select(cases)
 			if !ok {
-				cases = append(cases[:i], cases[i+1]...)
+				cases = append(cases[:i], cases[i+1])
 				continue
 			}
 			out <- v.Interface()
+		}
 	}()
 
 	return out
 }
+
 // fan-out
 func fanOut(ch <-chan interface{}, out []chan interface{}, async bool) {
 	go func() {
 		defer func() {
 			for i := 0; i < len(out); i++ {
-				close(out[i])	
+				close(out[i])
 			}
-		}
+		}()
 		for v := range ch {
 			v := v
 			for i := 0; i < len(out); i++ {
 				i := i
 				if async {
 					go func() {
-						out[i] <- v	
+						out[i] <- v
 					}()
 				} else {
 					out[i] <- v
@@ -178,6 +180,7 @@ func fanOut(ch <-chan interface{}, out []chan interface{}, async bool) {
 	}()
 
 }
+
 // stream
 func asStream(done <-chan struct{}, values ...interface{}) <-chan interface{} {
 	s := make(chan interface{})
@@ -186,7 +189,7 @@ func asStream(done <-chan struct{}, values ...interface{}) <-chan interface{} {
 		for _, v := range values {
 			select {
 			case <-done:
-				return	
+				return
 			case s <- v:
 			}
 		}
