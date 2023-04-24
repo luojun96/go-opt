@@ -19,6 +19,7 @@ func main() {
 				fmt.Println("closing...")
 				return
 			default:
+				fmt.Println("running...")
 				time.Sleep(100 * time.Millisecond)
 			}
 		}
