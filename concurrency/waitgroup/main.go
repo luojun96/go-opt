@@ -32,9 +32,9 @@ func worker(c *Counter, wg *sync.WaitGroup) {
 func main() {
 	var counter Counter
 	var wg sync.WaitGroup
-	wg.Add(10)
+	wg.Add(100)
 
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 100; i++ {
 		go worker(&counter, &wg)
 	}
 

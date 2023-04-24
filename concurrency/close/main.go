@@ -20,7 +20,7 @@ func main() {
 		}
 	}()
 
-	for i := 1; i <= 3; i++ {
+	for i := 1; i <= 100; i++ {
 		jobs <- i
 		fmt.Println("sent job", i)
 	}
