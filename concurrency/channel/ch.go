@@ -16,6 +16,7 @@ func main() {
 		for {
 			select {
 			case <-closing:
+				fmt.Println("closing...")
 				return
 			default:
 				time.Sleep(100 * time.Millisecond)
@@ -27,18 +28,20 @@ func main() {
 	signal.Notify(termChan, syscall.SIGINT, syscall.SIGTERM)
 	<-termChan
 
+	fmt.Println()
 	close(closing)
 	go doCleanup(closed)
 
 	select {
 	case <-closed:
-	case <-time.After(time.Second):
+	case <-time.After(15 * time.Second):
 		fmt.Println("cleanup time is over...")
 	}
 	fmt.Println("gracefully exit")
 }
 
 func doCleanup(closed chan struct{}) {
-	time.Sleep(time.Minute)
+	fmt.Println("do cleanup...")
+	time.Sleep(10 * time.Second)
 	close(closed)
 }

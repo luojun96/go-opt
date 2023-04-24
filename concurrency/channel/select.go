@@ -5,7 +5,7 @@ import (
 	"reflect"
 )
 
-func main() {
+func doExecution() {
 	var ch1 = make(chan int, 10)
 	var ch2 = make(chan int, 10)
 	var ch3 = make(chan int, 10)

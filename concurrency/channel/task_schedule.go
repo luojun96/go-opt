@@ -88,7 +88,11 @@ func orReflect(channels ...<-chan interface{}) <-chan interface{} {
 
 	orDone := make(chan interface{})
 	go func() {
-		defer close(OrDone)
+		defer func() {
+			if len(orDone) != 0 {
+				close(orDone)
+			}
+		}()
 
 		var cases []reflect.SelectCase
 		for _, c := range channels {
@@ -125,7 +129,7 @@ func OrDone() {
 		sig(50*time.Second),
 	)
 
-	// fmt.Printf("done after %v", time.Since(start))
+	fmt.Printf("done after %v", time.Since(start))
 }
 
 // fan-in

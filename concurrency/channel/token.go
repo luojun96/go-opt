@@ -16,7 +16,7 @@ func newWorker(id int, ch chan Token, nextCh chan Token) {
 	}
 }
 
-func main() {
+func executeWork() {
 	chs := []chan Token{make(chan Token), make(chan Token), make(chan Token), make(chan Token)}
 
 	for i := 0; i < 4; i++ {
