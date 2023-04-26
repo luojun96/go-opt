@@ -9,7 +9,7 @@ import (
 	"github.com/vardius/gollback"
 )
 
-func main() {
+func excuteWithRetry() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 

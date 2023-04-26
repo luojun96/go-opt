@@ -8,7 +8,7 @@ import (
 	"github.com/mdlayher/schedgroup"
 )
 
-func main() {
+func executeWithSchedGroup() {
 	sg := schedgroup.New(context.Background())
 
 	for i := 0; i < 3; i++ {
