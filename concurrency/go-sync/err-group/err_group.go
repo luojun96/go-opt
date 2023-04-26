@@ -8,7 +8,7 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
-func executeWithErrGroup() {
+func main() {
 	var g errgroup.Group
 
 	g.Go(func() error {

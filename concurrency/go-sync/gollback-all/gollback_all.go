@@ -9,7 +9,7 @@ import (
 	"github.com/vardius/gollback"
 )
 
-func executeWithGollback() {
+func main() {
 	rs, errs := gollback.All(
 		context.Background(),
 		func(ctx context.Context) (interface{}, error) {

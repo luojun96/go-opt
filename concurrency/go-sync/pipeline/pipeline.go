@@ -20,8 +20,8 @@ type result struct {
 	sum  [md5.Size]byte
 }
 
-func executeWithPipeline() {
-	m, err := MD5All(context.Background(), "/Users/luojun/git/golang")
+func main() {
+	m, err := MD5All(context.Background(), "/Users/luojun/git/go")
 	if err != nil {
 		log.Fatal(err)
 	}
