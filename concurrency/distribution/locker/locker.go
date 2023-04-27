@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	"log"
 	"math/rand"
 	"strings"
@@ -13,11 +14,11 @@ import (
 )
 
 var (
-	addr     = flag.String("addr", "https://192.168.31.23:2379", "etcd addresses")
+	addr     = flag.String("addr", "http://127.0.0.1:2379", "etcd address")
 	lockName = flag.String("name", "my-test-lock", "lock name")
 )
 
-func exec() {
+func main() {
 	flag.Parse()
 
 	rand.Seed(time.Now().UnixNano())
@@ -25,20 +26,29 @@ func exec() {
 	endpoints := strings.Split(*addr, ",")
 
 	cli, err := clientv3.New(clientv3.Config{
-		Endpoints: endpoints,
+		Endpoints:   endpoints,
+		DialTimeout: 5 * time.Second,
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer cli.Close()
+	fmt.Println("cli:", cli)
+
+	fmt.Println("start to use lock")
+	useLock(cli)
+
+	fmt.Println("start to use mutex")
+	useMutex(cli)
 }
 
 func useLock(cli *clientv3.Client) {
 	s1, err := concurrency.NewSession(cli)
 	if err != nil {
-		log.Fatal(err)
+		log.Println("err:", err)
 	}
 	defer s1.Close()
+	log.Println("s1:", s1)
 
 	locker := concurrency.NewLocker(s1, *lockName)
 
@@ -47,6 +57,8 @@ func useLock(cli *clientv3.Client) {
 	log.Println("acquired lock")
 
 	time.Sleep(time.Duration(rand.Intn(30)) * time.Second)
+
+	log.Println("releasing lock")
 	locker.Unlock()
 
 	log.Println("released lock")
@@ -55,24 +67,27 @@ func useLock(cli *clientv3.Client) {
 func useMutex(cli *clientv3.Client) {
 	s1, err := concurrency.NewSession(cli)
 	if err != nil {
-		log.Fatal(err)
+		log.Println("err:", err)
 	}
 	defer s1.Close()
+
+	log.Println("s1:", s1)
 
 	m1 := concurrency.NewMutex(s1, *lockName)
 
 	log.Printf("before acquiring. key: %s", m1.Key())
 	log.Println("acquiring lock")
 	if err := m1.Lock(context.TODO()); err != nil {
-		log.Fatal(err)
+		log.Println("err:", err)
 	}
 	log.Printf("acquired lock. key: %s", m1.Key())
 
 	time.Sleep(time.Duration(rand.Intn(30)) * time.Second)
 
+	log.Println("releasing lock")
 	if err := m1.Unlock(context.TODO()); err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
-	log.Println("released lock")
+	fmt.Println("released lock")
 
 }
