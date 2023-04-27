@@ -4,32 +4,35 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
-	"log"
 	"os"
 	"strings"
+	"time"
 
 	clientv3 "go.etcd.io/etcd/client/v3"
 	recipe "go.etcd.io/etcd/client/v3/experimental/recipes"
 )
 
 var (
-	addr        = flag.String("addr", "https://192.168.31.23:2379", "etcd addresses")
+	addr        = flag.String("addr", "http://127.0.0.1:2379", "etcd addresses")
 	barrierName = flag.String("name", "my-test-queue", "barrier name")
 )
 
-func exec() {
+func main() {
 	flag.Parse()
 
-	endpoints := rstrings.Split(*addr, ",")
+	endpoints := strings.Split(*addr, ",")
+	fmt.Println("endpoints:", endpoints)
 
 	cli, err := clientv3.New(clientv3.Config{
-		Endpoints: endpoints,
+		Endpoints:   endpoints,
+		DialTimeout: 5 * time.Second,
 	})
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("new client error:", err)
 	}
 	defer cli.Close()
 
+	fmt.Println("new client success", cli)
 	b := recipe.NewBarrier(cli, *barrierName)
 
 	consolescanner := bufio.NewScanner(os.Stdin)
