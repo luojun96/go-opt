@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"flag"
-	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -13,15 +12,16 @@ import (
 )
 
 var (
-	addr      = flag.String("addr", "http://192.168.31.23:2379", "etcd addresses")
+	addr      = flag.String("addr", "http://127.0.0.1:2379", "etcd addresses")
 	queueName = flag.String("name", "my-test-queue", "queue name")
 )
 
-func exec() {
+func main() {
 	flag.Parse()
 
 	endpoints := strings.Split(*addr, ",")
 
+	log.Println("connect to etcd:", endpoints)
 	cli, err := clientv3.New(clientv3.Config{
 		Endpoints: endpoints,
 	})
@@ -30,8 +30,10 @@ func exec() {
 	}
 	defer cli.Close()
 
+	log.Println("create queue:", *queueName)
 	q := recipe.NewQueue(cli, *queueName)
 
+	log.Println("start console")
 	consolescanner := bufio.NewScanner(os.Stdin)
 	for consolescanner.Scan() {
 		action := consolescanner.Text()
@@ -39,7 +41,7 @@ func exec() {
 		switch items[0] {
 		case "push":
 			if len(items) != 2 {
-				fmt.Println("must set value to push")
+				log.Println("must set value to push")
 				continue
 			}
 			q.Enqueue(items[1])
@@ -48,11 +50,11 @@ func exec() {
 			if err != nil {
 				log.Fatal(err)
 			}
-			fmt.Println(v)
+			log.Println(v)
 		case "quit", "exit":
 			return
 		default:
-			fmt.Println("unknown action")
+			log.Println("unknown action")
 		}
 	}
 }
