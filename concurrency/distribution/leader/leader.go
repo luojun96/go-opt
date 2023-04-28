@@ -39,29 +39,32 @@ func main() {
 	session, err := concurrency.NewSession(cli)
 	defer session.Close()
 
+	log.Println("start to elect for ID:", *nodeID)
+	e1 := concurrency.NewElection(session, *electName)
+
 	consolescanner := bufio.NewScanner(os.Stdin)
 	for consolescanner.Scan() {
 		action := consolescanner.Text()
 		switch action {
 		case "elect":
-			go elect(e1, *electName)
-		case value2:
-			proclaim(e1, *electName)
+			go elect(e1)
+		case "proclaim":
+			proclaim(e1)
 		case "resign":
-			resign(e1, *electName)
+			resign(e1)
 		case "watch":
-			go watch(e1, *electName)
+			go watch(e1)
 		case "query":
-			query(e1, *electName)
+			query(e1)
 		case "rev":
-			rev(e1, *electName)
+			rev(e1)
 		default:
 			fmt.Println("unknown action")
 		}
 	}
 }
 
-func elect(e1 *concurrency.Election, electName string) {
+func elect(e1 *concurrency.Election) {
 	log.Println("acampaigning for ID:", *nodeID)
 
 	if err := e1.Campaign(context.Background(), fmt.Sprintf("value-%d-%d", *nodeID, count)); err != nil {
@@ -71,7 +74,7 @@ func elect(e1 *concurrency.Election, electName string) {
 	count++
 }
 
-func proclaim(e1 *concurrency.Election, electName string) {
+func proclaim(e1 *concurrency.Election) {
 	log.Println("proclaiming for ID:", *nodeID)
 	if err := e1.Proclaim(context.Background(), fmt.Sprintf("value-%d-%d", *nodeID, count)); err != nil {
 		log.Println(err)
@@ -79,7 +82,7 @@ func proclaim(e1 *concurrency.Election, electName string) {
 	log.Println("proclaimed for ID:", *nodeID)
 }
 
-func resign(e1 *concurrency.Election, electName string) {
+func resign(e1 *concurrency.Election) {
 	log.Println("resigning for ID:", *nodeID)
 	if err := e1.Resign(context.Background()); err != nil {
 		log.Println(err)
@@ -87,7 +90,7 @@ func resign(e1 *concurrency.Election, electName string) {
 	log.Println("resigned for ID:", *nodeID)
 }
 
-func query(e1 *concurrency.Election, electName string) {
+func query(e1 *concurrency.Election) {
 	resp, err := e1.Leader(context.Background())
 	if err != nil {
 		log.Printf("failed to get the current leader: %v", err)
@@ -95,12 +98,12 @@ func query(e1 *concurrency.Election, electName string) {
 	log.Println("current leader:", string(resp.Kvs[0].Key), string(resp.Kvs[0].Value))
 }
 
-func rev(e1 *concurrency.Election, electName string) {
+func rev(e1 *concurrency.Election) {
 	rev := e1.Rev()
 	log.Println("current rev:", rev)
 }
 
-func watch(e1 *concurrency.Election, electName string) {
+func watch(e1 *concurrency.Election) {
 	ch := e1.Observe(context.TODO())
 	log.Println("start to watch for ID:", *nodeID)
 	for i := 0; i < 10; i++ {
