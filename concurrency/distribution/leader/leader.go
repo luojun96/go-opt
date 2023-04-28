@@ -16,7 +16,7 @@ import (
 
 var (
 	nodeID    = flag.Int("id", 0, "node ID")
-	addr      = flag.String("addr", "https://192.168.31.23:2379", "etcd addresses")
+	addr      = flag.String("addr", "http://127.0.0.1:2379", "etcd addresses")
 	electName = flag.String("name", "my-test-elect", "election name")
 )
 
@@ -27,6 +27,7 @@ func main() {
 
 	endpoints := strings.Split(*addr, ",")
 
+	log.Println("endpoints:", endpoints)
 	cli, err := clientv3.New(clientv3.Config{
 		Endpoints:   endpoints,
 		DialTimeout: 5 * time.Second,
@@ -35,7 +36,9 @@ func main() {
 		log.Fatal(err)
 	}
 	defer cli.Close()
+	log.Println("connected to etcd")
 
+	log.Println("start to create session")
 	session, err := concurrency.NewSession(cli)
 	defer session.Close()
 
@@ -59,7 +62,7 @@ func main() {
 		case "rev":
 			rev(e1)
 		default:
-			fmt.Println("unknown action")
+			log.Println("unknown action")
 		}
 	}
 }
