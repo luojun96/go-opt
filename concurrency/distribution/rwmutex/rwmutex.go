@@ -16,15 +16,16 @@ import (
 )
 
 var (
-	addr     = flag.String("addr", "https://192.168.31.23:2379", "etcd addresses")
+	addr     = flag.String("addr", "http://127.0.0.1:2379", "etcd addresses")
 	lockName = flag.String("name", "my-test-lock", "lock name")
 	action   = flag.String("rw", "w", "r means acquiring read lock, w means acquiring write lock")
 )
 
-func exec() {
+func main() {
 	flag.Parse()
 	rand.Seed(time.Now().UnixNano())
 
+	log.Println("connecting to etcd")
 	endpoints := strings.Split(*addr, ",")
 	cli, err := clientv3.New(clientv3.Config{
 		Endpoints: endpoints,
@@ -34,21 +35,23 @@ func exec() {
 	}
 	defer cli.Close()
 
-	s1, err := concurrency.NewSession(cli, *lockName)
+	log.Println("creating etcd session")
+	s1, err := concurrency.NewSession(cli)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer s1.Close()
 
+	log.Println("creating etcd lock")
 	m1 := recipe.NewRWMutex(s1, *lockName)
 	consolescanner := bufio.NewScanner(os.Stdin)
 	for consolescanner.Scan() {
 		action := consolescanner.Text()
 		switch action {
 		case "w":
-			testWriteLocker()
+			testWriteLocker(m1)
 		case "r":
-			testReadLocker()
+			testReadLocker(m1)
 		default:
 			fmt.Println("unknown action")
 		}
@@ -79,7 +82,7 @@ func testReadLocker(m1 *recipe.RWMutex) {
 
 	time.Sleep(time.Duration(rand.Intn(10)) * time.Second)
 
-	if err := m1.RLock(); err != nil {
+	if err := m1.RUnlock(); err != nil {
 		log.Fatal(err)
 	}
 	log.Println("released read lock")
