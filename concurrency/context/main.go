@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 
 	"github.com/google/uuid"
@@ -20,8 +21,9 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 			msgID = value
 		}
 	}
+	w.Header().Add("Content-Type", "application/json")
 	w.Header().Add("msgId", msgID)
-	w.Write([]byte("Hello, world"))
+	json.NewEncoder(w).Encode(map[string]string{"message": "Hello, world"})
 }
 
 func injectMsgID(next http.Handler) http.Handler {
@@ -31,5 +33,4 @@ func injectMsgID(next http.Handler) http.Handler {
 		req := r.WithContext(ctx)
 		next.ServeHTTP(w, req)
 	})
-	return nil
 }
