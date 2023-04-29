@@ -22,7 +22,7 @@ func loadNewConfig() Config {
 	}
 }
 
-func Run() {
+func main() {
 	var config atomic.Value
 	config.Store(Config{})
 	var cond = sync.NewCond(&sync.Mutex{})

@@ -9,7 +9,6 @@ import (
 
 func main() {
 	executeWithCondtion()
-	// Run()
 }
 
 func executeWithCondtion() {
