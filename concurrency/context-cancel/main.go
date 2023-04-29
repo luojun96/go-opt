@@ -7,11 +7,13 @@ import (
 )
 
 func main() {
-	ctx := context.Background()
-	cancelCtx, cancelFunc := context.WithCancel(ctx)
+	ctx := context.TODO()
+	cancelCtx, cancel := context.WithCancel(ctx)
+	defer cancel()
 	go task(cancelCtx)
 	time.Sleep(3 * time.Second)
-	cancelFunc()
+	fmt.Println("Cancel the task")
+	cancel()
 	time.Sleep(1 * time.Second)
 }
 

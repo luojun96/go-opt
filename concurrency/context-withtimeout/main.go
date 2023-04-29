@@ -10,11 +10,11 @@ func main() {
 	ctx := context.Background()
 	cancelCtx, cancel := context.WithTimeout(ctx, 3*time.Second)
 	defer cancel()
-	go task1(cancelCtx)
+	go task(cancelCtx)
 	time.Sleep(4 * time.Second)
 }
 
-func task1(ctx context.Context) {
+func task(ctx context.Context) {
 	i := 1
 	for {
 		select {
