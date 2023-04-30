@@ -14,8 +14,8 @@ func generateUint32Example() {
 //go:generate ./gen.sh ./template/container.tmp.go gen string container
 func generateStringExample() {
 	var s string = "Hello"
-	v := NewStringContainer()
-	c.Put(s)
-	v := c.Get()
-	fmt.Printf("generateExample: %d (%T)\n", v, v)
+	container := NewStringContainer()
+	container.Put(s)
+	v := container.Get()
+	fmt.Printf("generateExample: %s (%s)\n", v, v)
 }

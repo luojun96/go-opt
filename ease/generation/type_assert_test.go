@@ -17,5 +17,4 @@ func TestPut(t *testing.T) {
 	if elem != 7 {
 		t.Errorf("expect 7, got %v\n", elem)
 	}
-
 }

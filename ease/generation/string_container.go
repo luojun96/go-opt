@@ -1,4 +1,4 @@
-package gen
+package main
 
 type StringContainer struct {
 	s []string
