@@ -11,7 +11,6 @@ type data struct {
 }
 
 func main() {
-	fmt.Println("vim-go")
 	v1 := data{}
 	v2 := data{}
 
