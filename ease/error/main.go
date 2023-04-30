@@ -14,7 +14,7 @@ func Close(c io.Closer) {
 }
 
 func main() {
-	exec()
+	// 	exec()
 	// 	r, err := os.Open("/hyperjun")
 	// 	if err != nil {
 	// 		log.Fatal("error openning 'a'\n")
