@@ -6,25 +6,25 @@ type Option func(*Server)
 
 func Protocol(p string) Option {
 	return func(s *Server) {
-		s.Conf.Protocol = p
+		s.Config.Protocol = p
 	}
 }
 
 func Timeout(timeout time.Duration) Option {
 	return func(s *Server) {
-		s.Conf.Timeout = timeout
+		s.Config.Timeout = timeout
 	}
 }
 
 func MaxConns(maxcount int) Option {
 	return func(s *Server) {
-		s.Conf.MaxCount = maxcount
+		s.Config.MaxCount = maxcount
 	}
 }
 
 func TLS(tls *TLSConfig) Option {
 	return func(s *Server) {
-		s.Conf.TLS = tls
+		s.Config.TLS = tls
 	}
 }
 
@@ -37,9 +37,9 @@ func NewServerWithOptions(addr string, port int, options ...func(*Server)) (*Ser
 	}
 
 	srv := Server{
-		Addr: addr,
-		Port: port,
-		Conf: &conf,
+		Addr:   addr,
+		Port:   port,
+		Config: &conf,
 	}
 
 	for _, option := range options {

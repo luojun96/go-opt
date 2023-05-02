@@ -25,9 +25,9 @@ type Config struct {
 }
 
 type Server struct {
-	Addr string  `yaml:"addr"`
-	Port int     `yaml:"port"`
-	Conf *Config `yaml:config`
+	Addr   string  `yaml:"addr"`
+	Port   int     `yaml:"port"`
+	Config *Config `yaml:config`
 }
 
 func NewServer(addr string, port int, conf *Config) (*Server, error) {
@@ -38,8 +38,8 @@ func NewServer(addr string, port int, conf *Config) (*Server, error) {
 		return nil, errors.New("port should not be empty")
 	}
 	return &Server{
-		Addr: addr,
-		Port: port,
-		Conf: conf,
+		Addr:   addr,
+		Port:   port,
+		Config: conf,
 	}, nil
 }

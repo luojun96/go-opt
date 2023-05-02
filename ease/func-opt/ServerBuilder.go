@@ -16,6 +16,6 @@ func (sb *ServerBuilder) WithProtocol(protocol string) *ServerBuilder {
 }
 
 func (sb *ServerBuilder) WithMaxConn(maxconn int) *ServerBuilder {
-	sb.Conf.MaxCount = maxconn
+	sb.Config.MaxCount = maxconn
 	return sb
 }
