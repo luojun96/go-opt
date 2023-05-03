@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 )
@@ -22,6 +23,7 @@ func TestEmployeeCountIf(t *testing.T) {
 	if old != 2 {
 		t.Errorf("expect %d, got %d\n", 2, old)
 	}
+	fmt.Printf("old: %d\n", old)
 }
 
 func TestEmployeeFilterIn(t *testing.T) {
@@ -36,8 +38,8 @@ func TestEmployeeFilterIn(t *testing.T) {
 
 	if !reflect.DeepEqual(expected, no_vacation) {
 		t.Errorf("expect %+v, got %+v\n", expected, no_vacation)
-
 	}
+	fmt.Printf("no_vacation: %+v\n", no_vacation)
 }
 
 func TestEmployeeSumIf(t *testing.T) {
@@ -48,4 +50,5 @@ func TestEmployeeSumIf(t *testing.T) {
 	if total_pay != expected {
 		t.Errorf("expect %d, got %d\n", expected, total_pay)
 	}
+	fmt.Printf("total_pay: %d\n", total_pay)
 }
