@@ -6,10 +6,13 @@ import (
 )
 
 func main() {
-	path := []byte("Users/luojun/git/golang/ease/slice")
+	// path := []byte("Users/luojun/git/golang/ease/slice")
+	path := []byte("/Users/luojun/git/go/go-opt/ease/slice/main.go")
 	sepIndex := bytes.IndexByte(path, '/')
+	fmt.Println("first index of '/' =>", sepIndex)
 
-	dir1 := path[:sepIndex:sepIndex]
+	dir1 := path[:sepIndex]
+	// dir1 := path[:sepIndex:sepIndex]
 	dir2 := path[sepIndex+1:]
 
 	fmt.Println("dir1 =>", string(dir1))
@@ -31,4 +34,5 @@ func main() {
 	//	dir2 => luojun/git/golang/ease/slice
 	//	dir1 => Userssuffix
 	//	dir: => luojun/git/golang/ease/slice
+
 }
