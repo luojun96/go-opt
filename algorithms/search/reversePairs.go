@@ -1,4 +1,4 @@
-package algorithms
+package search
 
 func reversePairs(nums []int) int {
 	return mergeSort(nums, 0, len(nums)-1)
