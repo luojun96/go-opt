@@ -1,18 +1,30 @@
 package main
 
 import (
+	"context"
 	"log"
 	"time"
 
 	"github.com/segmentio/kafka-go"
 )
 
+// kafka client configuration
+type Kafka struct {
+	network string
+	address string
+	context context.Context
+}
+
 func main() {
-	address := "localhost:9092"
 	topic := "test"
 	partition := 0
 
-	k := New(address)
+	k := &Kafka{
+		network: "tcp",
+		address: "localhost:9092",
+		context: context.Background(),
+	}
+
 	conn, err := kafka.DialLeader(k.context, k.network, k.address, topic, partition)
 	if err != nil {
 		log.Fatal("failed to dial leader:", err)
@@ -31,5 +43,4 @@ func main() {
 	if err := conn.Close(); err != nil {
 		log.Fatal("failed to close writer:", err)
 	}
-
 }
