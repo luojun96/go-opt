@@ -8,10 +8,6 @@ import (
 )
 
 func main() {
-	executeWithCondtion()
-}
-
-func executeWithCondtion() {
 	c := sync.NewCond(&sync.Mutex{})
 	var ready int
 	for i := 0; i < 10; i++ {
@@ -21,7 +17,7 @@ func executeWithCondtion() {
 			ready++
 			c.L.Unlock()
 			fmt.Printf("Athletes #%d is ready.\n", i)
-			c.Broadcast()
+			c.Signal()
 		}(i)
 	}
 
@@ -31,5 +27,6 @@ func executeWithCondtion() {
 		c.Wait()
 	}
 	c.L.Unlock()
+
 	fmt.Println("All athletes are ready now,  kick off...")
 }
