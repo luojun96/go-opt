@@ -31,7 +31,7 @@ func main() {
 		for {
 			time.Sleep(time.Duration(5+rand.Int63n(5)) * time.Second)
 			config.Store(loadNewConfig())
-			cond.Broadcast()
+			cond.Signal()
 		}
 	}()
 
