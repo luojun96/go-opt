@@ -5,19 +5,19 @@ import (
 	"sync"
 )
 
-const SHARD_COUNT = 32
+const ShardCount = 32
 
 type ConcurrentMap []*ConcurrentMapShared
 
 type ConcurrentMapShared struct {
-	sync.RWMutex
+	rw    sync.RWMutex
 	items map[string]interface{}
 }
 
 func New() ConcurrentMap {
-	m := make(ConcurrentMap, SHARD_COUNT)
+	m := make(ConcurrentMap, ShardCount)
 
-	for i := 0; i < SHARD_COUNT; i++ {
+	for i := 0; i < ShardCount; i++ {
 		m[i] = &ConcurrentMapShared{items: make(map[string]interface{})}
 	}
 	return m
@@ -25,20 +25,20 @@ func New() ConcurrentMap {
 
 func (m ConcurrentMap) GetShard(key string) *ConcurrentMapShared {
 	i, _ := strconv.Atoi(key)
-	return m[uint(i)%uint(SHARD_COUNT)]
+	return m[uint(i)%uint(ShardCount)]
 }
 
 func (m ConcurrentMap) Set(key string, value interface{}) {
 	shard := m.GetShard(key)
-	shard.Lock()
+	shard.rw.Lock()
 	shard.items[key] = value
-	shard.Unlock()
+	shard.rw.Unlock()
 }
 
 func (m ConcurrentMap) Get(key string) (interface{}, bool) {
 	shard := m.GetShard(key)
-	shard.RLock()
+	shard.rw.RLock()
 	val, ok := shard.items[key]
-	shard.RUnlock()
+	shard.rw.RUnlock()
 	return val, ok
 }
