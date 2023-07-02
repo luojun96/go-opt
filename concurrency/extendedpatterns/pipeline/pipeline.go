@@ -21,7 +21,8 @@ type result struct {
 }
 
 func main() {
-	m, err := MD5All(context.Background(), "/Users/luojun/git/go")
+	path := os.Getenv("GOROOT")
+	m, err := MD5All(context.Background(), path)
 	if err != nil {
 		log.Fatal(err)
 	}
