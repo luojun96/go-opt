@@ -14,6 +14,7 @@ func main() {
 	defer cancel()
 
 	res, err := gollback.Retry(ctx, 5, func(ctx context.Context) (interface{}, error) {
+		fmt.Println("try")
 		return nil, errors.New("failed")
 	})
 
