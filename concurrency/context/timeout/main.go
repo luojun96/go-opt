@@ -7,14 +7,11 @@ import (
 )
 
 func main() {
-	ctx := context.TODO()
-	cancelCtx, cancel := context.WithCancel(ctx)
+	ctx := context.Background()
+	cancelCtx, cancel := context.WithTimeout(ctx, 3*time.Second)
 	defer cancel()
 	go task(cancelCtx)
-	time.Sleep(3 * time.Second)
-	fmt.Println("Cancel the task")
-	cancel()
-	time.Sleep(1 * time.Second)
+	time.Sleep(4 * time.Second)
 }
 
 func task(ctx context.Context) {
@@ -22,7 +19,6 @@ func task(ctx context.Context) {
 	for {
 		select {
 		case <-ctx.Done():
-			fmt.Println("Gracefully exit")
 			fmt.Println(ctx.Err())
 			return
 		default:
