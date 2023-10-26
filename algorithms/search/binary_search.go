@@ -1,19 +1,36 @@
 package search
 
-// array doesn't contain duplicate item
-func binarySearchNormal(array []int, value int) int {
-	low, high := 0, len(array)-1
-	for low <= high {
-		mid := low + (high-low)/2
-		if array[mid] == value {
-			return mid
-		} else if array[mid] < value {
-			low = mid + 1
+// Binary search:
+// A integer array is already sorted in ascending order, and it hasn't duplicate element.
+func bSearch(a []int, v int) int {
+	l, h := 0, len(a)-1
+	for l <= h {
+		m := l + (h-l)>>1
+		if a[m] == v {
+			return m
+		} else if a[m] > v {
+			h = m - 1
 		} else {
-			high = mid - 1
+			l = m + 1
 		}
 	}
 	return -1
+}
+
+// Binary search using recursion
+func bSearchInternally(a []int, l, h, v int) int {
+	if l > h {
+		return -1
+	}
+
+	m := l + (h-l)>>1
+	if a[m] == v {
+		return m
+	} else if a[m] > v {
+		return bSearchInternally(a, l, m-1, v)
+	} else {
+		return bSearchInternally(a, m+1, h, v)
+	}
 }
 
 // array contain duplicated items, and look for the element which is bigger or equal to value
