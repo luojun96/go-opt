@@ -1,7 +1,6 @@
 package tree
 
 import (
-	"reflect"
 	"testing"
 )
 
@@ -71,9 +70,24 @@ func Test_connect(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := connect(tt.args.root); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("connect() = %v, want %v", got, tt.want)
-			}
+			got := connect(tt.args.root)
+			compareXTrees(got, tt.want, t)
 		})
 	}
+}
+
+func compareXTrees(a, b *XNode, t *testing.T) {
+	if a == nil && b == nil {
+		return
+	}
+	if !(a != nil && b != nil && a.Val == b.Val) {
+		t.Errorf("different node: a = %+v, b = %+v", a, b)
+	}
+
+	if (a.Next == nil && b.Next != nil) || (a.Next != nil && b.Next == nil) ||
+		(a.Next != nil && b.Next != nil && a.Next.Val != b.Next.Val) {
+		t.Errorf("different next node: a.next = %+v, b.next = %+v", a.Next, b.Next)
+	}
+	compareXTrees(a.Left, b.Left, t)
+	compareXTrees(a.Right, b.Right, t)
 }
