@@ -61,7 +61,7 @@ func (r *RowSrc) Err() error {
 func NewConn() (*pgx.Conn, error) {
 	dsn := url.URL{
 		Scheme: "postgres",
-		Host:   "207.148.113.13:5432",
+		Host:   "192.168.31.202:5432",
 		User:   url.UserPassword("jun", "Initial0!"),
 		Path:   "shoe",
 	}
