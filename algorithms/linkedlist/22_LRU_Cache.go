@@ -2,8 +2,8 @@ package linkedlist
 
 // https://leetcode.cn/problems/lru-cache/
 type DLinkedNode struct {
+	prev, next *DLinkedNode
 	key, value int
-	prev, next  *DLinkedNode
 }
 
 func initDLinkedNode(key, value int) *DLinkedNode {
@@ -14,10 +14,10 @@ func initDLinkedNode(key, value int) *DLinkedNode {
 }
 
 type LRUCache struct {
-	size       int
-	capacity   int
 	cache      map[int]*DLinkedNode
 	head, tail *DLinkedNode
+	size       int
+	capacity   int
 }
 
 func Constructor(capacity int) LRUCache {

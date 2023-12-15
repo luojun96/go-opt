@@ -1,10 +1,18 @@
 package others
 
 type DLinkedNode struct {
-	key   int
-	value int
 	prev  *DLinkedNode
 	next  *DLinkedNode
+	key   int
+	value int
+}
+
+type LRUCache struct {
+	cache    map[int]*DLinkedNode
+	head     *DLinkedNode
+	tail     *DLinkedNode
+	size     int
+	capacity int
 }
 
 func initDLinkedNode(key, value int) *DLinkedNode {
@@ -14,15 +22,7 @@ func initDLinkedNode(key, value int) *DLinkedNode {
 	}
 }
 
-type LRUCache struct {
-	size     int
-	capacity int
-	cache    map[int]*DLinkedNode
-	head     *DLinkedNode
-	tail     *DLinkedNode
-}
-
-func NewLRUCache(capacity int) LRUCache {
+func New(capacity int) LRUCache {
 	l := LRUCache{
 		cache:    map[int]*DLinkedNode{},
 		head:     initDLinkedNode(0, 0),
@@ -40,17 +40,20 @@ func (l *LRUCache) Get(key int) int {
 	}
 
 	node := l.cache[key]
+	// move node to the head of linked list
 	l.moveToHead(node)
 	return node.value
 }
 
-func (l *LRUCache) Put(key int, value int) {
+func (l *LRUCache) Put(key, value int) {
 	if _, ok := l.cache[key]; !ok {
 		node := initDLinkedNode(key, value)
 		l.cache[key] = node
+		// add node to the head of linked list
 		l.addToHead(node)
 		l.size++
 		if l.size > l.capacity {
+			// delete the tail node from the linked list and the cache
 			removedNode := l.removeTail()
 			delete(l.cache, removedNode.key)
 			l.size--
@@ -58,6 +61,7 @@ func (l *LRUCache) Put(key int, value int) {
 	} else {
 		node := l.cache[key]
 		node.value = value
+		// move node to the head of linked list
 		l.moveToHead(node)
 	}
 }
