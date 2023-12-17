@@ -48,3 +48,22 @@ func removeNthFromEndByLength(head *ListNode, n int) *ListNode {
 	cur.Next = cur.Next.Next
 	return dummy.Next
 }
+
+func removeNthFromEndByDoublePointers(head *ListNode, n int) *ListNode {
+	dummyHead := &ListNode{
+		Next: head,
+	}
+
+	fast, slow := dummyHead, dummyHead
+	for i := 0; i < n+1; i++ {
+		fast = fast.Next
+	}
+	for fast != nil {
+		fast = fast.Next
+		slow = slow.Next
+	}
+
+	slow.Next = slow.Next.Next
+
+	return dummyHead.Next
+}

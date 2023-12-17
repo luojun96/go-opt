@@ -24,3 +24,25 @@ func deleteNode(head *ListNode, val int) *ListNode {
 
 	return head
 }
+
+func deleteListNode(head *ListNode, val int) *ListNode {
+	if head == nil {
+		return nil
+	}
+
+	dummyHead := &ListNode{
+		Next: head,
+	}
+
+	curr := dummyHead
+	for curr.Next != nil {
+		if curr.Next.Val == val {
+			curr.Next = curr.Next.Next
+			break
+		} else {
+			curr = curr.Next
+		}
+	}
+
+	return dummyHead.Next
+}
