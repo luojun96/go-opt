@@ -33,7 +33,7 @@ func (h *IHeap) Pop() interface{} {
 	return x
 }
 
-func topKFrequent(nums []int, k int) []int {
+func topKFrequentByHeap(nums []int, k int) []int {
 	m := make(map[int]int, 0)
 	for _, v := range nums {
 		m[v]++
