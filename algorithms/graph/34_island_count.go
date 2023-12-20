@@ -1,9 +1,63 @@
 package graph
 
-// https://leetcode.cn/problems/number-of-islands/solutions/
+// https://leetcode.cn/problems/number-of-islands/
+type Island struct {
+	Row int
+	Col int
+}
+
 func numIslands(grid [][]byte) int {
 	if len(grid) == 0 {
 		return 0
+	}
+
+	var bfs func(row, col int)
+	bfs = func(row, col int) {
+		grid[row][col] = 0
+		q := []*Island{{
+			Row: row,
+			Col: col,
+		}}
+		for len(q) > 0 {
+			size := len(q)
+			for i := 0; i < size; i++ {
+				curr := q[0]
+				q = q[1:]
+
+				// up
+				if curr.Row > 0 && grid[curr.Row-1][curr.Col] == '1' {
+					grid[curr.Row-1][curr.Col] = '0'
+					q = append(q, &Island{
+						Row: curr.Row - 1,
+						Col: curr.Col,
+					})
+				}
+				// down
+				if curr.Row < len(grid)-1 && grid[curr.Row+1][curr.Col] == '1' {
+					grid[curr.Row+1][curr.Col] = '0'
+					q = append(q, &Island{
+						Row: curr.Row + 1,
+						Col: curr.Col,
+					})
+				}
+				// right
+				if curr.Col < len(grid[0])-1 && grid[curr.Row][curr.Col+1] == '1' {
+					grid[curr.Row][curr.Col+1] = '0'
+					q = append(q, &Island{
+						Row: curr.Row,
+						Col: curr.Col + 1,
+					})
+				}
+				// left
+				if curr.Col > 0 && grid[curr.Row][curr.Col-1] == '1' {
+					grid[curr.Row][curr.Col-1] = '0'
+					q = append(q, &Island{
+						Row: curr.Row,
+						Col: curr.Col - 1,
+					})
+				}
+			}
+		}
 	}
 
 	num := 0
@@ -12,7 +66,7 @@ func numIslands(grid [][]byte) int {
 			if grid[i][j] == '1' {
 				num++
 				// use bfs to search the grid, and set the found island value to '0'
-				bfs(grid, i, j)
+				bfs(i, j)
 			}
 		}
 	}
@@ -24,7 +78,7 @@ type island struct {
 	col int
 }
 
-func bfs(grid [][]byte, row, col int) {
+func bfs1(grid [][]byte, row, col int) {
 	grid[row][col] = 0
 	queue := []*island{
 		{row, col},
