@@ -6,7 +6,7 @@ type MaxQueue struct {
 	maxList []int
 }
 
-func Constructor() MaxQueue {
+func NewMaxQueue() MaxQueue {
 	return MaxQueue{
 		queue:   []int{},
 		maxList: []int{},

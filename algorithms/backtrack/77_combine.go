@@ -28,3 +28,28 @@ func combineByDFS(n int, k int) [][]int {
 	dfs(1)
 	return res
 }
+
+func combineByBackTracking(n int, k int) [][]int {
+	var (
+		res  [][]int
+		path []int
+	)
+
+	var backtrack func(index int)
+	backtrack = func(index int) {
+		if len(path) == k {
+			temp := make([]int, k)
+			copy(temp, path)
+			res = append(res, temp)
+			return
+		}
+		for i := index; i <= n-(k-len(path))+1; i++ {
+			path = append(path, i)
+			backtrack(i + 1)
+			path = path[:len(path)-1]
+		}
+	}
+	backtrack(1)
+
+	return res
+}
