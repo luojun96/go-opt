@@ -1,7 +1,7 @@
 package sort
 
 func quickSort(nums []int) {
-	sort(nums, 0, len(nums)-1)
+	qSort(nums, 0, len(nums)-1)
 }
 
 func sort(nums []int, low, high int) {
@@ -26,4 +26,28 @@ func sort(nums []int, low, high int) {
 	q := partition(nums, low, high)
 	sort(nums, low, q-1)
 	sort(nums, q+1, high)
+}
+
+func qSort(nums []int, low, high int) {
+	if low >= high {
+		return
+	}
+
+	var partition func(left, right int) int
+	partition = func(left, right int) int {
+		p := nums[right]
+		i := left - 1
+		for j := left; j < right; j++ {
+			if nums[j] <= p {
+				i++
+				nums[i], nums[j] = nums[j], nums[i]
+			}
+		}
+		nums[i+1], nums[right] = nums[right], nums[i+1]
+		return i + 1
+	}
+
+	pivot := partition(low, high)
+	qSort(nums, low, pivot-1)
+	qSort(nums, pivot+1, high)
 }

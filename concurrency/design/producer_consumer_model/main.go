@@ -22,6 +22,8 @@ type Product struct {
 	Id   int
 }
 
+var r *rand.Rand
+
 func Produce(ctx context.Context, id int, q chan<- Product) {
 	log.Printf("Producer %d starts to work...", id)
 	ticker := time.NewTicker(3 * time.Second)
@@ -32,7 +34,7 @@ func Produce(ctx context.Context, id int, q chan<- Product) {
 			log.Printf("Producer %d is interrupted", id)
 			return
 		case <-ticker.C:
-			number := rand.Intn(1000)
+			number := r.Intn(1000)
 			product := Product{
 				Name: fmt.Sprintf("Product-%d", number),
 				Id:   number,
@@ -60,6 +62,7 @@ func Consume(ctx context.Context, id int, q <-chan Product) {
 }
 
 func main() {
+	r = rand.New(rand.NewSource(time.Now().UnixNano()))
 	// queue, capacity = 10
 	q := make(chan Product, capacity)
 	defer close(q)
